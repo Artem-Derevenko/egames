@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from 'firebase';
-import BlockMain from './BlockMain';
 
 const config = {
     apiKey: "AIzaSyCxVx_RuZ3Xi0jEi9PtkIVrJhpGLQ8gF6Q",
@@ -16,7 +15,7 @@ class PageHome extends React.Component {
 	render() {
 		return (
 			<div>
-				<BlockMain />
+
 			</div>
 		)
 	}

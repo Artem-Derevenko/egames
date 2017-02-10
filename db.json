@@ -1,0 +1,24 @@
+{
+   "head_slider": [
+        {
+            "img": "img/release_new/The-Witcher-3-Wild-Hunt.jpg",
+            "text": "The Witcher 3: Wild Hunt",
+            "link": "https://hi-news.ru/games"
+        },
+        {
+            "img": "img/release_new/Star-Wars-Battlefront.jpg",
+            "text": "Star Wars Battlefront",
+            "link": "https://hi-news.ru/games"
+        },
+        {
+            "img": "img/release_new/Batman_Arkham_Knight.jpg",
+            "text": "Batman Arkham Knight",
+            "link": "https://hi-news.ru/games"
+        },
+        {
+            "img": "img/release_new/Evolve.jpg",
+            "text": "Evolve",
+            "link": "https://hi-news.ru/games"
+        }
+    ]
+}

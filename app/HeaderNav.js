@@ -1,23 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class HeaderNav extends React.Component {
 	render() {
 		return (
-			<ul className="nav">
-                <li><a className="transition" href="/">HOME</a></li>
-                <li><a className="transition" href="/#/about">ABOUT US</a></li>
-                <li><a className="downarrow transition">SERVICES</a> 
-                    <ul className="subnav transition">
-                        <li><a className="transition" href="/#/services">Web design</a></li>
-                        <li><a className="transition" href="/#/services">Wordpress Design</a></li>
-                        <li><a className="transition" href="/#/services">Mobile App Develoment</a></li>
-                        <li><a className="transition" href="/#/services">Internet marketing</a></li>
-                        <li><a className="transition" href="/#/services">Socila media Management</a></li>
-                    </ul>
-                </li>
-                <li><a className="transition" href="/#/blog">BLOG</a></li>
-                <li><a className="transition" href="/#/contacts">CONTACT US</a></li>
-            </ul>
+            <div className="menu"> 
+                <ul>
+                    <li><Link to="about" activeClassName="active">О нас</Link></li>
+                    <li><Link to="news" activeClassName="active">Новости</Link></li>
+                    <li><Link to="pay" activeClassName="active">Способы оплаты</Link></li>
+                    <li><Link to="delivery" activeClassName="active">Доставка</Link></li>
+                    <li><Link to="contacts" activeClassName="active">Контакты</Link></li>
+                </ul>
+            </div>
 		)
 	}
 }

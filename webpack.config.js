@@ -1,4 +1,6 @@
-var config = {
+var path = require('path');
+
+module.exports = {
    entry: './app/App.js',
     
    output: {
@@ -25,5 +27,3 @@ var config = {
       ]
    }
 }
-
-module.exports = config;
