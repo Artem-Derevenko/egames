@@ -1,30 +1,23 @@
 import React from 'react';
 import BlockWorksItem from './BlockWorksItem';
+import ReactMixin from 'react-mixin';
+import ReactFire from 'reactfire';
+import firebase from 'firebase';
 
 class BlockWorks extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            works: []
+        }
+    }
+
+    componentDidMount() {
+        this.bindAsArray(firebase.database().ref().child("works"), "works");
+    }
+
 	render() {
-        const WorksList = [
-            {
-                src: "img/notes.png",
-                link1: "https://www.google.com.ua/",
-                link2: "http://www.iwebs.site/"
-            },
-            {
-                src: "img/lemon.png",
-                link1: "https://www.google.com.ua/",
-                link2: "http://www.iwebs.site/"
-            },
-            {
-                src: "img/set.png",
-                link1: "https://www.google.com.ua/",
-                link2: "http://www.iwebs.site/"
-            },
-            {
-                src: "img/darts.png",
-                link1: "https://www.google.com.ua/",
-                link2: "http://www.iwebs.site/"
-            }
-        ];
+        const worksList = this.state.works;
 		return (
             <div>
     		    <div className="latest">
@@ -38,7 +31,7 @@ class BlockWorks extends React.Component {
                 <hr className="line" />
                 <div className="latest pic">
                     {
-                        WorksList.map((item, i) => 
+                        worksList.map((item, i) => 
                             <BlockWorksItem key={i} src={item.src} link1={item.link1} link2={item.link2} />)
                     }
                 </div>
@@ -46,5 +39,7 @@ class BlockWorks extends React.Component {
 		)
 	}
 }
+
+ReactMixin(BlockWorks.prototype, ReactFire);
 
 export default BlockWorks;

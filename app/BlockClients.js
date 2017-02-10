@@ -1,33 +1,28 @@
 import React from 'react';
+import ReactMixin from 'react-mixin';
+import ReactFire from 'reactfire';
+import firebase from 'firebase';
 
 class BlockClients extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            clients: []
+        }
+    }
+
+    componentDidMount() {
+        this.bindAsArray(firebase.database().ref().child("clients"), "clients");
+    }
+
 	render() {
-        const ClientsList = [
-            {
-                src: "img/cox.png"
-            },
-            {
-                src: "img/deer.png"
-            },
-            {
-                src: "img/cw.png"
-            },
-            {
-                src: "img/banana.png"
-            },
-            {
-                src: "img/finder.png"
-            },
-            {
-                src: "img/film.png"
-            }
-        ];
+        const clientsList = this.state.clients;
 		return (
             <div className="person clientsicon">
                 <h6 className="">OUR CLIENTS</h6>
                 <div>
                     {
-                        ClientsList.map((item, i) => 
+                        clientsList.map((item, i) => 
                             <img src={item.src} />)
                     }
                 </div>
@@ -35,5 +30,7 @@ class BlockClients extends React.Component {
 		)
 	}
 }
+
+ReactMixin(BlockClients.prototype, ReactFire);
 
 export default BlockClients;

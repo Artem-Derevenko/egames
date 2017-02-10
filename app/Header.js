@@ -7,7 +7,7 @@ class Header extends React.Component {
 			<header>
                 <div className="Bwrappers"> 
                     <HeaderNav />
-                    <div className="logotype"><a href="index.html">Bis<span>Lite</span></a></div>
+                    <div className="logotype"><a href="/">Bis<span>Lite</span></a></div>
                 </div>
             </header>
 		)
