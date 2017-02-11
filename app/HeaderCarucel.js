@@ -35,5 +35,7 @@ class HeaderCarucel extends React.Component {
 	}
 }
 
+ReactMixin(HeaderCarucel.prototype, ReactFire);
+
 export default HeaderCarucel;
 

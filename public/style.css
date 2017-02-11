@@ -165,7 +165,8 @@ input:-webkit-autofill {
   behavior: url(border-radius.htc); /* учим IE border-radius */
 }
 
-.slider-image {
+.slider-block {
+  position: relative;
   width: 212px;
   height: 152px;
   margin: 2px;
@@ -179,6 +180,14 @@ input:-webkit-autofill {
   behavior: url(border-radius.htc); /* учим IE border-radius */
 }
 
+.slider-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1
+}
 
 
 /*********** Кнопки слайлдера ***********/
@@ -205,6 +214,7 @@ input:-webkit-autofill {
 
 /*********** полупрозрачный фон с датой и названием ожидаемой игры на слайде ***********/
 .slider-info {
+  position: relative;
   width: 192px;
   height: 48px;
   background-image: url(../img/release_new/slider-info-bgr.png);
@@ -219,36 +229,40 @@ input:-webkit-autofill {
   -khtml-border-radius: 0px 0px 4px 4px; /* KHTML */
    /* Для плохих IE */
   behavior: url(border-radius.htc); /* учим IE border-radius */
+  z-index: 2;
 } 
 
 .slider-info p, .slider-info a {
-  font-size: 12px; 
+  font-size: 14px; 
   font-family: Arial, Impact;
   color: #ffffff;
 } 
 
+.slider-info a:hover {
+  text-decoration: none;
+} 
 
 /********* Создание правой, средней и левой части страницу под контент и фильтры поиска и сортировки ********/
-#container {
+.container {
   width: 100%;
   height: auto;
   padding: 30px 0px 35px 0px;
   overflow: hidden; /* Если блок не растягивается по размеру контента */
 }
 
-#block-left {
+.block-left {
   width: 20%;
   height: auto;
   float: left; 
 }
 
-#block-center {
+.block-center {
   width: 60%;
   height: auto;
   float: left;
 }
 
-#block-right {
+.block-right {
   width: 19.9%;
   height: auto;
   float: left;
@@ -256,7 +270,7 @@ input:-webkit-autofill {
 
 
 /********* Подвал **********/ 
-#footer {
+.footer {
   width: 100%;
   height: 80px;
   padding-top: 70px;
@@ -266,14 +280,14 @@ input:-webkit-autofill {
   clear: both; /* отменить обтекание со всех сторон */  
 }
 
-#footer p {
+.footer p {
   font-size: 13px; 
   font-family: Arial, Impact;
   color: #ffffff;
 }
 
 /********* Левый блок с категориями товара **********/ 
-#category {
+.category {
   width: 210px;
   height: auto;
   overflow: hidden; /* Если блок не растягивается по размеру контента */
@@ -303,7 +317,7 @@ input:-webkit-autofill {
   font-weight: 600;
 }
 
-#category > ul > li > a { 
+.category > ul > li > a { 
   display: block;
   width: 194px;
   height: 33px;
@@ -321,11 +335,11 @@ input:-webkit-autofill {
   text-decoration: none;
 }
 
-#category > ul > li > a:hover { 
+.category > ul > li > a:hover { 
   background-color: #262525;
 }
 
-#category > ul > li > a.active { 
+.category > ul > li > a.active { 
   background-color: #000000;
 }
 
@@ -357,21 +371,21 @@ input:-webkit-autofill {
   margin: 20px 0px 15px 0px; 
 }
 
-#block-input-price {
+.block-input-price {
   width: auto;
   height: 32px;
   margin-bottom: 20px; 
   //margin-bottom: 12px;
 }
 
-#block-input-price div {
+.block-input-price div {
   width: auto;
   height: 20px;
   float: left;
   margin-right: 8px;
 }
 
-#block-input-price div p {
+.block-input-price div p {
   font: 13px Arial; 
   color: #333333;
   margin-top: 3px;
@@ -397,7 +411,7 @@ input:-webkit-autofill {
   //margin-top: -1px;
 }
 
-#block-trackbar {
+.block-trackbar {
   width: 180px;
   height: 25px;
   clear: both;
@@ -418,7 +432,7 @@ input:-webkit-autofill {
    margin-right: 8px;
 }
 
-#button-param-search-border {
+.button-param-search-border {
   width: 80px;
   height: 25px;
   float: right;
@@ -427,7 +441,7 @@ input:-webkit-autofill {
   margin-top: 20px;
 }
 
-#button-param-search {
+.button-param-search-border input {
   display: block;
   width: 80px;
   height: 25px;
@@ -439,12 +453,12 @@ input:-webkit-autofill {
   outline: none;
 } 
 
-#button-param-search:hover {
+.button-param-search-border input:hover {
   background-image: url(../img/button-hover.jpg);
   background-repeat: repeat-x; 
 }  
 
-#button-param-search:active {
+.button-param-search-border input:active {
   background-image: none;
   background-color: #598806;
 }
