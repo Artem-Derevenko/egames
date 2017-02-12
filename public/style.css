@@ -567,14 +567,14 @@ input:-webkit-autofill {
 
 /**********  Создание блока Корзина ********/
 
-#block-basket {
+.block-basket {
   width: 210px;
   height: auto;
   overflow: hidden; 
   margin: 0px auto 25px auto;
 }
 
-#basket-conteniar-wrapper { /* контейнер-рамка для содержимого блока */
+.basket-conteniar-wrapper { /* контейнер-рамка для содержимого блока */
   width: 208px;
   height: auto;
   overflow: hidden;
@@ -586,18 +586,18 @@ input:-webkit-autofill {
   padding-bottom: 25px; 
 }
 
-#conteniar-link {
+.conteniar-link {
   text-align: center;
 }
 
-#conteniar-link a { 
+.conteniar-link a { 
   text-decoration: none;
   font: bold 13px Arial; 
   color: #9C9C9C; 
   line-height: 25px;
 }
 
-#basket-img { 
+.basket-img { 
   display: block;
   width: 60px;
   height: 60px;
@@ -605,16 +605,16 @@ input:-webkit-autofill {
   //margin-bottom: 10px;
 }
 
-#conteniar-link a:hover {
+.conteniar-link a:hover {
   color: #555555;
 }
 
 
-#conteniar-link a:hover span {
+.conteniar-link a:hover span {
   color: #00008B;
 }
 
-#conteniar-link a span {
+.conteniar-link a span {
   color: #1874CD;
 }
 
@@ -1015,7 +1015,7 @@ input:-webkit-autofill {
 
 /********** стили для блока Новости и Акции ************/
 
-#news-wrapper {
+.news-wrapper {
   width: 178px;
   height: auto;
   overflow: hidden;
@@ -1027,12 +1027,12 @@ input:-webkit-autofill {
   padding: 10px 15px 7px 15px; 
 }
 
-#newsticker {
+.newsticker {
   width: 178px;
   height: auto;
 }
 
-#newsticker ul {
+.newsticker ul {
   display: block;
   margin: 0px;
   padding: 0px;
@@ -1076,7 +1076,7 @@ input:-webkit-autofill {
   text-align: left; 
 }
 
-#news-wrapper img {
+.news-wrapper img {
   display: block;
   margin: 4px 84px 4px 84px; 
   cursor: pointer;
@@ -1487,7 +1487,7 @@ input:-webkit-autofill {
 
 /********** Авторизация ******************/
 
-#auth_info {
+.auth_info {
   text-align: center;
   font: 13px Arial; 
   color: #777777;
@@ -1495,20 +1495,20 @@ input:-webkit-autofill {
   line-height: 18px;
 }
 
-#user-icon {
+.user-icon {
   display: block;
   width: 50px;
   height: 50px;
   margin: 20px 79px 8px auto;
 }
 
-#auth_info span {
+.auth_info span {
   font: bold 13px Arial; 
   color: green;
 }
 
 
-#profile {
+.profile {
   display: block;
   float: left;
   width: 27px;
@@ -1517,7 +1517,7 @@ input:-webkit-autofill {
   cursor: pointer;
 }
 
-#exit {
+.exit {
   display: block;
   float: left;  
   width: 27px;
@@ -1526,7 +1526,7 @@ input:-webkit-autofill {
   cursor: pointer;
 }
 
-#form-block-authorization {
+.form-block-authorization {
   width: 180px;
   height: auto;
   overflow: hidden;
@@ -1534,7 +1534,7 @@ input:-webkit-autofill {
   text-align: center;
 }
 
-#message-auth {
+.message-auth {
   display: none;
   text-align: center;
   font: 13px Arial; 
@@ -1569,7 +1569,7 @@ input:-webkit-autofill {
   margin-bottom: 10px;
 }
 
-#form-block-authorization label {
+.form-block-authorization label {
   display: block;
   float: left;
   font: 12px Arial; 
@@ -1578,7 +1578,7 @@ input:-webkit-autofill {
   //margin-top: 3px;
 }
 
-#auth-submit {
+.auth-submit {
   width: 60px;
   height: 25px;
   outline: none;
@@ -1590,7 +1590,7 @@ input:-webkit-autofill {
   cursor: pointer;
 } 
 
-#auth-submit span {
+.auth-submit span {
   display: block;
   width: 20px;
   height: 15px; 
@@ -1600,28 +1600,28 @@ input:-webkit-autofill {
   color: #ffffff;
 } 
 
-#auth-submit:hover {
+.auth-submit:hover {
   background-image: url(../img/button-hover.jpg);
   background-repeat: repeat-x; 
 }  
 
-#auth-submit:active {
+.auth-submit:active {
   background-image: none;
   background-color: #598806;
 }
 
-#registration, #remind-me {
+.registration, .remind-me {
   text-decoration: none;
   font: 12px Arial; 
   color: #9C9C9C;
   cursor: pointer;
 }
 
-#registration:hover, #remind-me:hover {
+.registration:hover, .remind-me:hover {
   color: #333333;
 }
 
-#slash {
+.slash {
   font: 12px Arial; 
   color: #9C9C9C;
   margin: 0px 4px 0px 4px;

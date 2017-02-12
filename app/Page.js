@@ -2,6 +2,9 @@ import React from 'react';
 import firebase from 'firebase';
 import Header from './Header';
 import BlockCategory from './BlockCategory';
+import BlockBasket from './BlockBasket';
+import BlockAuthorization from './BlockAuthorization';
+import BlockNews from './BlockNews';
 import BlockParameter from './BlockParameter';
 import Footer from './Footer';
 
@@ -30,6 +33,9 @@ class Page extends React.Component {
 	                	{this.props.children}
 	                </div> 
 	                <div className="block-right">
+	                	<BlockBasket />
+	                	<BlockAuthorization />
+	                	<BlockNews />
 	                </div>  
 	            </div>  
 				<Footer />
