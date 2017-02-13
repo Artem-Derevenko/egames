@@ -30,38 +30,29 @@ class BlockParameter extends React.Component {
 			count_platform = 0;
 
 			if (developer_List.length == 0) {
-
-				developer_List.push(item);
+				developer_List.push(item.developer);
 				count_dev++;
 			}
 
 			else {
 
-				for (var i = 0; i < developer_List.length; i++) {
-			 
-				 	if (developer_List[i].developer == item.developer) { count_dev++ }
-
-				}
+				developer_List.map((item_dev, i) => (item_dev == item.developer) ? count_dev++ : false )
 
 			}
 
 			if (platform_List.length == 0) {
-
-				platform_List.push(item);
+				platform_List.push(item.platform);
 				count_platform++;
 			}
 
 			else {
 
-				for (var i = 0; i < platform_List.length; i++) {
-			 
-				 	if (platform_List[i].platform == item.platform) { count_platform++ }
-				}
+				platform_List.map((item_platform, i) => (item_platform == item.platform) ? count_platform++ : false )
 
 			}
 
-			if (count_dev == 0) {developer_List.push(item)};
-			if (count_platform == 0) {platform_List.push(item)};
+			(count_dev == 0) ? developer_List.push(item.developer) : false;
+			(count_platform == 0) ? platform_List.push(item.platform) : false;
 
 		})
 
@@ -94,14 +85,14 @@ class BlockParameter extends React.Component {
 						<ul className="checkbox-parameter">
 							{	
 		                        developer_List.map((item, i) => 
-		 							<BlockParameterDeveloper key={i} id={i} developer={item.developer} />)
+		 							<BlockParameterDeveloper key={i} id={i} developer={item} />)
 			                }
 						</ul> 
 						<p className="filter-title">Платформа:</p>						
 						<ul className="checkbox-parameter">
 							{	
 		                        platform_List.map((item, i) => 
-		 							<BlockParameterPlatform key={i} id={i} platform={item.platform} />)
+		 							<BlockParameterPlatform key={i} id={i} platform={item} />)
 			                }
 						</ul> 
 						<div className="button-param-search-border">

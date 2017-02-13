@@ -19,6 +19,28 @@ class BlockCategory extends React.Component {
 
 	render() {
 		const product_List = this.state.product;
+		const category_List = [];
+		var count_category = 0;
+
+		product_List.map((item, i) => {
+
+			count_category = 0;
+
+			if (category_List.length == 0) {
+				category_List.push(item.category);
+				count_category++;
+			}
+
+			else {
+
+				category_List.map((item_cat, i) => (item_cat == item.category) ? count_category++ : false )
+
+			}
+
+			(count_category == 0) ? category_List.push(item.category) : false;
+
+		})
+
 		return (
             <div className="category">
 				<div className="block-title">
@@ -27,8 +49,8 @@ class BlockCategory extends React.Component {
 				<ul>
 					<li><Link to="/" activeClassName="active">Все жанры</Link></li>
 					{	
-                        product_List.map((item, i) => 
- 							<BlockCategoryItem key={i} category={item.category} />)
+                        category_List.map((item, i) => 
+ 							<BlockCategoryItem key={i} category={item} />)
 	                }
 				</ul>
 			</div>

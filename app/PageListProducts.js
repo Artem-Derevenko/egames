@@ -1,7 +1,7 @@
 import React from 'react';
 import BlockSearch from './BlockSearch';
 import BlockSorting from './BlockSorting';
-import BlockProductsGrid from './BlockProductsGrid';
+import BlockProducts from './BlockProducts';
 import ReactMixin from 'react-mixin';
 import ReactFire from 'reactfire';
 import firebase from 'firebase';
@@ -10,12 +10,25 @@ class PageListProducts extends React.Component {
 	constructor() {
         super();
         this.state = {
+            productShow: "grid",
             product: []
         }
     }
 
     componentDidMount() {
         this.bindAsArray(firebase.database().ref().child("productList"), "product");
+    }
+
+    _listShowProduct() {
+        this.setState({
+            productShow: "list"
+        });
+    }
+
+    _gridShowProduct() {
+        this.setState({
+            productShow: "grid"
+        });
     }
 
 	render() {
@@ -26,10 +39,10 @@ class PageListProducts extends React.Component {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting />
+                    <BlockSorting productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
-                            product_List.map((item, i) => <BlockProductsGrid key={i} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
+                            product_List.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
                         }
                     </div>
                 </div>
@@ -40,10 +53,10 @@ class PageListProducts extends React.Component {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting />
+                    <BlockSorting productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
-                            product_List.map((item, i) => (item.category == game_category) ? <BlockProductsGrid key={i} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} /> : false)
+                            product_List.map((item, i) => (item.category == game_category) ? <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} /> : false)
                         }
                     </div>
                 </div>

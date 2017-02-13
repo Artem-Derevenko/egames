@@ -6,8 +6,8 @@ class BlockSorting extends React.Component {
             <div className="block-sorting">
                 <ul className="option-list">
                     <li>Вид:</li>
-                    <li><img className="style-list" src="img/list.png" /></li>
-                    <li><img className="style-grid" src="img/grid.png" /></li>
+                    <li><img className={(this.props.productShow == "grid") ? "style-list" : "style-list active" } src="img/list.png" onClick={this.props.listShow} /></li>
+                    <li><img className={(this.props.productShow == "grid") ? "style-grid active" : "style-list" } src="img/grid.png" onClick={this.props.gridShow} /></li>
                     <li>Сортировка:</li>
                     <li><a className="select-sort" >От А до Я</a>
                         <ul className="sorting-list">

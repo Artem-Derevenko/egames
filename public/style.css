@@ -8,7 +8,7 @@ html, body {
 
 * { /* общие свойства для всех тегов */
   margin: 0px; 
-  padding: 0px;
+  padding: 0px;products-list
   border: 0px;
   outline: none;
 }
@@ -664,6 +664,11 @@ input:-webkit-autofill {
 .option-list img {
   margin-top: -6px;
   cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.option-list img.active {
+  border: 1px solid #777777;
 }
 
 .select-sort {
@@ -877,7 +882,6 @@ input:-webkit-autofill {
 /************* Стили для вывода товара в виде списка ************/
 
 .products-list {
-  display: none;
   width: 94%;
   min-height: 202px;
   height: auto;
@@ -897,6 +901,11 @@ input:-webkit-autofill {
   float: left;
   margin-right: 20px;
   margin-bottom: 7px;
+}
+
+.images-list img {
+  width: 100%;
+  height: auto;
 }
 
 .list-container-price-button {
