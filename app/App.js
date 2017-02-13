@@ -8,7 +8,7 @@ import PageAbout from './PageAbout';
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route component={Page}>
-			<Route path="/" component={PageListProducts} />
+			<Route path="/(:category)" component={PageListProducts} />
 			<Route path="about" component={PageAbout} />
 			<Route path="news" component={PageAbout} />
 			<Route path="pay" component={PageAbout} />

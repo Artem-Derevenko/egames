@@ -4,8 +4,8 @@ class BlockParameterDeveloper extends React.Component {
 	render() {
 		return (
 			<li>
-        		<input type="checkbox" name="" value="" id="checkdevelopers1" />
-        		<label htmlFor="checkdevelopers1">{this.props.developer}</label>
+        		<input type="checkbox" name="" value="" id={'checkdevelopers'+this.props.id} />
+        		<label htmlFor={'checkdevelopers'+this.props.id}>{this.props.developer}</label>
     		</li>
 		)
 	}

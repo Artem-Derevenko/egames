@@ -54,7 +54,7 @@
             "price": "250",
             "votes": "10",
             "rating": "4.5",
-            "category": "Шутеры / Action",
+            "category": "Action",
             "developer": "Treyarch",
             "platform": "PLAYSTATION 2",
             "reviews": [
@@ -79,7 +79,7 @@
             "price": "190",
             "votes": "5",
             "rating": "4",
-            "category": "Ролевые (RPG)",
+            "category": "RPG",
             "developer": "Bethesda Softworks",
             "platform": "PC",
             "reviews": [
@@ -104,7 +104,7 @@
             "price": "599",
             "votes": "15",
             "rating": "4.75",
-            "category": "Ролевые (RPG)",
+            "category": "RPG",
             "developer": "Blizzard Entertainment",
             "platform": "PC",
             "reviews": [
