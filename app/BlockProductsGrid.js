@@ -19,11 +19,11 @@ class BlockProductsGrid extends React.Component {
                     <div className="rating-grid">
                         <div className="rating-wrapper">
                             <ul className="rating">
-                                <li className="current"><span className="star1" title="очень плохо" vote="1" id_product=""></span></li>
-                                <li><span className="star2" title="плохо" vote="2" id_product=""></span></li>
-                                <li><span className="star3" title="нормально" vote="3" id_product=""></span></li>
-                                <li><span className="star4" title="хорошо" vote="4" id_product=""></span></li>
-                                <li><span className="star5" title="отлично" vote="5" id_product=""></span></li>
+                                <li className="current"><span className="star1" title="очень плохо" vote="1"></span></li>
+                                <li><span className="star2" title="плохо" vote="2"></span></li>
+                                <li><span className="star3" title="нормально" vote="3"></span></li>
+                                <li><span className="star4" title="хорошо" vote="4"></span></li>
+                                <li><span className="star5" title="отлично" vote="5"></span></li>
                             </ul>
                             <p className="count-votes">голосов: {this.props.votes}</p>
                         </div>

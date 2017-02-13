@@ -8,6 +8,7 @@ import BlockNews from './BlockNews';
 import BlockParameter from './BlockParameter';
 import Footer from './Footer';
 
+
 const config = {
     apiKey: "AIzaSyBUnRxSmHuHCpX48JnI34KiokYo1cMARWI",
     authDomain: "egames-f3cee.firebaseapp.com",

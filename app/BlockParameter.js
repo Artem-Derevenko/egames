@@ -1,8 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router';
+import BlockParameterDeveloper from './BlockParameterDeveloper';
+import BlockParameterPlatform from './BlockParameterPlatform';
+import ReactMixin from 'react-mixin';
+import ReactFire from 'reactfire';
+import firebase from 'firebase';
 
 class BlockParameter extends React.Component {
+	constructor() {
+        super();
+        this.state = {
+            product: []
+        }
+    }
+
+    componentDidMount() {
+        this.bindAsArray(firebase.database().ref().child("productList"), "product");
+    }
+
 	render() {
+		const product_List = this.state.product;
 		return (
             <div className="block-wrapper">
 				<div className="block-title">
@@ -30,29 +46,17 @@ class BlockParameter extends React.Component {
 						</div>
 						<p className="filter-title">Разработчики:</p>
 						<ul className="checkbox-parameter">
-                    		<li>
-	                    		<input type="checkbox" name="" value="" id="checkdevelopers1" />
-	                    		<label for="checkdevelopers1">ffff</label>
-                    		</li>
-                    		<li>
-	                    		<input type="checkbox" name="" value="" id="checkdevelopers2" />
-	                    		<label for="checkdevelopers2">ffff</label>
-                    		</li>
-                    		<li>
-	                    		<input type="checkbox" name="" value="" id="checkdevelopers3" />
-	                    		<label for="checkdevelopers3">ffff</label>
-                    		</li>
+							{	
+		                        product_List.map((item, i) => 
+		 							<BlockParameterDeveloper key={i} developer={item.developer} />)
+			                }
 						</ul> 
 						<p className="filter-title">Платформа:</p>						
 						<ul className="checkbox-parameter">
-							<li>
-	                    		<input type="checkbox" name="" value="" id="checkplatform1" />
-	                    		<label for="checkplatform1">ffff</label>
-                    		</li>
-                    		<li>
-	                    		<input type="checkbox" name="" value="" id="checkplatform2" />
-	                    		<label for="checkplatform2">ffff</label>
-                    		</li>
+							{	
+		                        product_List.map((item, i) => 
+		 							<BlockParameterPlatform key={i} platform={item.platform} />)
+			                }
 						</ul> 
 						<div className="button-param-search-border">
 							<input type="submit" name="submit" id="button-param-search" value="Найти" />
@@ -63,5 +67,7 @@ class BlockParameter extends React.Component {
 		)
 	}
 }
+
+ReactMixin(BlockParameter.prototype, ReactFire);
 
 export default BlockParameter;

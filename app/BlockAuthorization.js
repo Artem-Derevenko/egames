@@ -16,7 +16,7 @@ class BlockAuthorization extends React.Component {
 		                <div className="auth-input-border auth-pass-border">
 		                    <input type="password" name="auth_pass" className="auth-input auth-pass" placeholder="Пароль" />
 		                </div>
-		                <input type="checkbox" name="rememberme" id="rememberme" /><label for="rememberme">Запомнить на сайте</label>
+		                <input type="checkbox" name="rememberme" id="rememberme" /><label htmlFor="rememberme">Запомнить на сайте</label>
 		                <div className="auth-submit">
 		                    <span>Ok</span>
 		                </div>
