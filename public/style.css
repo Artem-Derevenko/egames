@@ -468,13 +468,13 @@ input:-webkit-autofill {
 
 /********** Блок поиска по сайту и сортировки вывода информации в средний блок *********/
 
-#block-search-conteniar {
+.block-search-conteniar {
   width: 630px;
   height: 35px;
   margin: 0px auto; 
 } 
 
-#block-search {
+.block-search {
   width: 630px;
   height: 35px;
   margin: 0px auto; 
@@ -482,7 +482,7 @@ input:-webkit-autofill {
   position: absolute; 
 }
 
-#input-search-border {
+.input-search-border {
   width: 470px;
   height: 26px;
   outline: none;
@@ -490,7 +490,7 @@ input:-webkit-autofill {
   float: left; 
 }
 
-#input-search-border span {
+.input-search-border span {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -498,7 +498,7 @@ input:-webkit-autofill {
   background-repeat: no-repeat;
 }
 
- #input-search {
+ .input-search {
   width: 435px;
   height: 26px;
   outline: none;
@@ -511,7 +511,7 @@ input:-webkit-autofill {
   //margin-top: -1px;
  }
 
-#button-search-border {
+.button-search-border {
   width: 148px;
   height: 25px;
   outline: none;
@@ -519,7 +519,7 @@ input:-webkit-autofill {
   float: right;
 } 
 
-#button-search {
+.button-search {
   width: 148px;
   height: 25px; line-height: 25px;
   font: 14px Arial; 
@@ -529,17 +529,17 @@ input:-webkit-autofill {
   cursor: pointer;
 } 
 
-#button-search:hover {
+.button-search:hover {
   background-image: url(../img/button-hover.jpg);
   background-repeat: repeat-x; 
 }  
 
-#button-search:active {
+.button-search:active {
   background-image: none;
   background-color: #598806;
 }
 
-#result-search {
+.result-search {
   display: none;
   width: 470px;
   height: auto;
@@ -551,7 +551,7 @@ input:-webkit-autofill {
 }
 
 
-#result-search a {
+.result-search a {
   display: block;
   outline: none;
   background-color: #FFFFFF;
@@ -561,7 +561,7 @@ input:-webkit-autofill {
   padding: 3px 4px;
 }
 
-#result-search a:hover {
+.result-search a:hover {
   background-color: #efeced; 
 }
 
@@ -620,7 +620,7 @@ input:-webkit-autofill {
 
 /********** Создаем блок с навигационной цепочкой, с вариантами вида вывода товаров и сортировкой ************/
 
-#block-sorting {
+.block-sorting {
   width: 96%;
   height: auto;
   margin: 0px auto;
@@ -628,31 +628,31 @@ input:-webkit-autofill {
   padding-left: 4%;
 }
 
-#nav-breadcrumbs {
+.nav-breadcrumbs {
   margin-top: 10px;
 }
 
-#nav-breadcrumbs a {
+.nav-breadcrumbs a {
   text-decoration: none;
   font: 12px Arial; 
   color: #9C9C9C;
 }
 
-#nav-breadcrumbs a:hover {
+.nav-breadcrumbs a:hover {
   text-decoration: underline;
 }
 
-#nav-breadcrumbs span {
+.nav-breadcrumbs span {
   font: bold 12px Arial; 
   color: #6E6E6E;
 }
 
-#option-list {
+.option-list {
   width: auto;
   height: 50px; 
 }
 
-#option-list > li {
+.option-list > li {
   float: left;
   list-style-type: none;
   margin-top: 15px;
@@ -661,19 +661,19 @@ input:-webkit-autofill {
   color: #333333;
 }
 
-#option-list img {
+.option-list img {
   margin-top: -6px;
   cursor: pointer;
 }
 
-#select-sort {
+.select-sort {
   text-decoration: none;
   font: 13px Arial; 
   color: #888888;
   cursor: pointer; 
 }
 
-#sorting-list {
+.sorting-list {
   display: none;
   position: absolute;
   width: 180px;
@@ -684,7 +684,7 @@ input:-webkit-autofill {
   margin-top: 3px;
 }
 
-#sorting-list a {
+.sorting-list a {
   display: block;
   width: 165px;
   padding: 3px 5px 3px 10px;
@@ -694,7 +694,7 @@ input:-webkit-autofill {
   cursor: pointer; 
 }
 
-#sorting-list a:hover {
+.sorting-list a:hover {
   color: #FFFFFF;
   background-color: #B5B5B5;
 }
@@ -703,7 +703,7 @@ input:-webkit-autofill {
 
 /************* Стили для вывода товара в виде таблицы ************/
 
-#blok-center-contents {
+.blok-center-contents {
   width: 100%;
   height: auto;
   margin: 0px auto;

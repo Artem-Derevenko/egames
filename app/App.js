@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, hashHistory } from 'react-router';
 import Page from './Page';
-import PageHome from './PageHome';
+import PageListProducts from './PageListProducts';
 import PageAbout from './PageAbout';
 
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route component={Page}>
-			<Route path="/" component={PageHome} />
+			<Route path="/" component={PageListProducts} />
 			<Route path="about" component={PageAbout} />
 			<Route path="news" component={PageAbout} />
 			<Route path="pay" component={PageAbout} />
