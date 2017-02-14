@@ -649,20 +649,47 @@ input:-webkit-autofill {
 
 .option-list {
   width: auto;
-  height: 50px; 
+  height: 25px;
+  padding: 20px 0px 35px 0px; 
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
 .option-list > li {
-  float: left;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 25px;
   list-style-type: none;
-  margin-top: 15px;
   margin-right: 7px;
   font: bold 13px Arial; 
   color: #333333;
 }
 
 .option-list img {
-  margin-top: -6px;
   cursor: pointer;
   border: 1px solid transparent;
 }
@@ -679,14 +706,11 @@ input:-webkit-autofill {
 }
 
 .sorting-list {
-  display: none;
-  position: absolute;
   width: 180px;
-  height: auto;
+  height: 25px;
   border: 1px solid #9F9F9F;
   background-color: #FFFFFF;
   list-style-type: none;
-  margin-top: 3px;
 }
 
 .sorting-list a {
@@ -731,7 +755,7 @@ input:-webkit-autofill {
 .products-grid {
   width: 393px;
   height: auto;
-  margin: 20px 0 0 0;
+  margin: 0 0 20px 0;
   background-color: #F3F3F3;
   border: 1px solid #B3B3B3;
   text-align: left;
@@ -882,16 +906,15 @@ input:-webkit-autofill {
 /************* Стили для вывода товара в виде списка ************/
 
 .products-list {
-  width: 94%;
+  width: 100%;
   min-height: 202px;
   height: auto;
-  margin: 10px auto 15px auto;
+  margin: 0px auto 20px auto;
   padding: 15px 15px;
   background-color: #F3F3F3;
   border: 1px solid #B3B3B3; 
   text-align: left;
   list-style-type: none;
-  height: expression( this.scrollHeight < 250 ? "249px" : "auto" ); /* min-height для IE6 */
 }
 
 .images-list {
@@ -2263,7 +2286,7 @@ input:-webkit-autofill {
 
 /************* центральный блок страницы О НАС **************/
 
-#blok-about-us {
+.blok-about-us {
   width: 99.9%;
   min-height: 925px;
   height:expression(this.height< 925?'925px':'auto'); 
@@ -2282,7 +2305,7 @@ input:-webkit-autofill {
   text-transform: uppercase;
 }
 
-#blok-about-us p {
+.blok-about-us p {
   margin: 25px 35px;
   text-align: justify;
   font: 14px Arial; 
@@ -2294,7 +2317,7 @@ input:-webkit-autofill {
 
 /************* центральный блок страницы НОВОСТИ **************/
 
-#blok-page-news {
+.blok-page-news {
   width: 99.9%;
   min-height: 925px;
   height:expression(this.height< 925?'925px':'auto'); 
@@ -2982,6 +3005,10 @@ p.text-comment {
 .rating li[class*="current"] {
   z-index: 1;
   background: url(../img/rating/rating.png) left bottom;
+}
+
+.rating:hover li[class*="current"] {
+  background: transparent;
 }
 
 .rating li span[class*="star"] {

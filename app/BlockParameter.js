@@ -24,6 +24,7 @@ class BlockParameter extends React.Component {
 		var count_dev = 0;
 		var count_platform = 0;
 
+		//создаем массив с уникальными разработчиками и платформами (проверяем на повторение категорий)
 		product_List.map((item, i) => {
 
 			count_dev = 0;

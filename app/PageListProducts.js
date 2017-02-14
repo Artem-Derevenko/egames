@@ -11,6 +11,7 @@ class PageListProducts extends React.Component {
         super();
         this.state = {
             productShow: "grid",
+            sorting_prod: "От А до Я",
             product: []
         }
     }
@@ -30,16 +31,17 @@ class PageListProducts extends React.Component {
             productShow: "grid"
         });
     }
-
-	render() {
+    
+   	render() {
 		const product_List = this.state.product;
         const game_category = this.props.params.category; 
 
-        if (game_category == undefined) {
+        //вывод всех категорий, если в адресной страке не указана категория
+        if (game_category === undefined) {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
+                    <BlockSorting  productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
                             product_List.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
@@ -49,11 +51,12 @@ class PageListProducts extends React.Component {
             )
         }
 
+        //вывод товара с конкретной категорией в адресной строке
         else {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
+                    <BlockSorting  productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
                             product_List.map((item, i) => (item.category == game_category) ? <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} /> : false)

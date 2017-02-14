@@ -22,6 +22,7 @@ class BlockCategory extends React.Component {
 		const category_List = [];
 		var count_category = 0;
 
+		//создаем массив с уникальными категориями (проверяем на повторение категорий)
 		product_List.map((item, i) => {
 
 			count_category = 0;
