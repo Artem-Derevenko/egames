@@ -32,16 +32,38 @@ class PageListProducts extends React.Component {
         });
     }
     
+    _sortingChange(event) {
+        this.setState({
+            sorting_prod: event.target.value
+        });
+    }
+
+    _sortArr(arr) { 
+        var n = arr.length;
+        for (var i = 0; i < n-1; i++)
+         { for (var j = 0; j < n-1-i; j++)
+            { if (arr[j+1].title.charAt(0).toLowerCase() < arr[j].title.charAt(0).toLowerCase())
+               { var t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t; }
+            }
+         }                     
+        return arr;
+    }
+
    	render() {
-		const product_List = this.state.product;
+		var product_List = this.state.product;
         const game_category = this.props.params.category; 
 
+        if (this.state.sorting_prod == "От А до Я") {
+
+            product_List = this._sortArr(product_List)
+
+        };
         //вывод всех категорий, если в адресной страке не указана категория
         if (game_category === undefined) {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting  productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
+                    <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
                             product_List.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
@@ -56,7 +78,7 @@ class PageListProducts extends React.Component {
             return (
                 <div>
                     <BlockSearch />
-                    <BlockSorting  productShow={this.state.productShow} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
+                    <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                     <div className="blok-center-contents">
                         {   
                             product_List.map((item, i) => (item.category == game_category) ? <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} /> : false)
@@ -64,7 +86,7 @@ class PageListProducts extends React.Component {
                     </div>
                 </div>
             )
-        }
+        };
 		
 	}
 }

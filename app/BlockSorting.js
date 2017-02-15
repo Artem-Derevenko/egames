@@ -11,7 +11,7 @@ class BlockSorting extends React.Component {
                     <li><img className={(this.props.productShow == "grid") ? "style-grid active" : "style-list" } src="img/grid.png" onClick={this.props.gridShow} /></li>
                     <li>Сортировка:</li>
                     <li>
-                        <select className="sorting-list" ref="sorting" onChange={this._Sorting}>
+                        <select className="sorting-list" value={this.props.sortState} onChange={this.props.sortingChange}>
                             <option>От А до Я</option>
                             <option>От дешевых к дорогим</option>
                             <option>От дорогих к дешевым</option>

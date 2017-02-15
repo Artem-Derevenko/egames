@@ -36,6 +36,11 @@ input:-webkit-autofill {
     color: #C1C0C0 !important; /* цвет текста */
 }
 
+#app {
+  min-width: 1330px;
+  height: auto;
+}
+
 .body-container {
   max-width: 1600px;
   width:expression(this.width> 1600? '1600px': this.width); /* max-width для IE6 */
@@ -706,29 +711,13 @@ input:-webkit-autofill {
 }
 
 .sorting-list {
-  width: 180px;
   height: 25px;
-  border: 1px solid #9F9F9F;
+  border: none;
+  outline: none;
   background-color: #FFFFFF;
   list-style-type: none;
-}
-
-.sorting-list a {
-  display: block;
-  width: 165px;
-  padding: 3px 5px 3px 10px;
-  text-decoration: none;
-  font: 13px Arial; 
   color: #888888;
-  cursor: pointer; 
 }
-
-.sorting-list a:hover {
-  color: #FFFFFF;
-  background-color: #B5B5B5;
-}
-
-
 
 /************* Стили для вывода товара в виде таблицы ************/
 
@@ -2287,8 +2276,8 @@ input:-webkit-autofill {
 /************* центральный блок страницы О НАС **************/
 
 .blok-about-us {
-  width: 99.9%;
-  min-height: 925px;
+  width: 100%;
+  min-height: auto;
   height:expression(this.height< 925?'925px':'auto'); 
   height: auto;
   background-color: #F3F3F3;
@@ -2318,8 +2307,8 @@ input:-webkit-autofill {
 /************* центральный блок страницы НОВОСТИ **************/
 
 .blok-page-news {
-  width: 99.9%;
-  min-height: 925px;
+  width: 100%;
+  min-height: auto;
   height:expression(this.height< 925?'925px':'auto'); 
   height: auto;
   background-color: #F3F3F3;
@@ -2373,9 +2362,9 @@ input:-webkit-autofill {
 
 /*********************** Страница Способы оплаты ***************/
 
-#blok-pay {
-  width: 99.9%;
-  min-height: 925px;
+.blok-pay {
+  width: 100%;
+  height: auto;
   height:expression(this.height< 925?'925px':'auto'); 
   height: auto;
   background-color: #F3F3F3;
@@ -2384,7 +2373,7 @@ input:-webkit-autofill {
   padding-bottom: 20px;
 }
 
-#blok-pay > ul {
+.blok-pay > ul {
   display: block;
   text-align: left;
   font: bold 16px Arial; 
@@ -2393,7 +2382,7 @@ input:-webkit-autofill {
   margin: 5px 35px ;
 }
 
-#blok-pay > ul > li {
+.blok-pay > ul > li {
   text-align: left;
   font: 14px Arial; 
   color: #888888;
@@ -2402,7 +2391,7 @@ input:-webkit-autofill {
   text-align: justify;
 }
 
-#blok-pay p#foot-note {
+.blok-pay p.foot-note {
   font: 12px Arial; 
   color: #888888;
   line-height: 16px;
@@ -2412,9 +2401,9 @@ input:-webkit-autofill {
 
 /******************* Страница Способы доставки ******************/
 
-#blok-delivery {
-  width: 99.9%;
-  min-height: 925px;
+.blok-delivery {
+  width: 100%;
+  height: auto;
   height:expression(this.height< 925?'925px':'auto'); 
   height: auto;
   background-color: #F3F3F3;
@@ -2423,7 +2412,7 @@ input:-webkit-autofill {
   padding-bottom: 20px;
 }
 
-#blok-delivery h4 {
+.blok-delivery h4 {
   text-align: left;
   font: bold 16px Arial; 
   color: #649e13;
@@ -2431,7 +2420,7 @@ input:-webkit-autofill {
   margin: 5px 35px ;
 }
 
-#blok-delivery p {
+.blok-delivery p {
   text-align: left;
   font: 14px Arial; 
   color: #888888;
@@ -2441,7 +2430,7 @@ input:-webkit-autofill {
   text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
 }
 
-#blok-delivery ul {
+.blok-delivery ul {
   display: block;
   text-align: left;
   font: bold 14px Arial; 
@@ -2450,7 +2439,7 @@ input:-webkit-autofill {
   margin: 0px 55px ;
 }
 
-#blok-delivery  ul > li {
+.blok-delivery  ul > li {
   text-align: left;
   font: 14px Arial; 
   color: #888888;
@@ -2461,7 +2450,7 @@ input:-webkit-autofill {
 
 /******************* Страница Контакты ******************/
 
-#blok-feedback {
+.blok-feedback {
   width: 99.9%;
   min-height: 925px;
   height:expression(this.height< 925?'925px':'auto'); 
@@ -2472,7 +2461,7 @@ input:-webkit-autofill {
   padding-bottom: 20px;
 }
 
-#blok-feedback h4 {
+.blok-feedback h4 {
   text-align: center;
   font: bold 16px Arial; 
   color: #649e13;
@@ -2481,7 +2470,7 @@ input:-webkit-autofill {
 }
 
 
-#blok-feedback p {
+.blok-feedback p {
   text-align: center;
   font: 14px Arial; 
   color: #888888;
@@ -2490,7 +2479,7 @@ input:-webkit-autofill {
 }
 
 
-#block-form-feedback {
+.block-form-feedback {
   width: 620px;
   height: auto;
   padding: 15px;
@@ -2501,13 +2490,13 @@ input:-webkit-autofill {
 }
 
 
-#block-form-feedback form {
+.block-form-feedback form {
   width: 540px;
   height: auto;
   margin: 15px auto 0px auto; 
 }
 
-#form-feedback h4 {
+.form-feedback h4 {
   text-align: center;
   font: bold 16px Arial; 
   color: #1874CD;
@@ -2516,7 +2505,7 @@ input:-webkit-autofill {
 }
 
 
-p#feedback-message {
+p.feedback-message {
    color: red;
    font: 14px Arial;
    margin-bottom: 25px;
@@ -2575,23 +2564,25 @@ p#feedback-message {
   //padding-top: 3px;
 }
 
-#block-feedback-message { 
+.block-feedback-message { 
   width: 640px;
   height: 202px;
   text-align: left; 
 }
 
 
-#input-feedback-message {
+.input-feedback-message {
   display: block;
   width: 320px;
   height: 200px;
   background-color: #ffffff !important;
   font: 14px Arial; 
   color: #777777;
+  outline: none;
+  border: none;
 }
 
-#input-feedback-message-border {
+.input-feedback-message-border {
   height: auto;
   border: 1px solid #CACACA;
   background-color: #ffffff;
@@ -2600,7 +2591,7 @@ p#feedback-message {
 }
 
 
-#feedback-form-submit-border {
+.feedback-form-submit-border {
   width: 128px;
   height: 25px;
   outline: none;
@@ -2609,7 +2600,7 @@ p#feedback-message {
   margin: 30px auto;
 } 
 
-#feedback-form-submit {
+.feedback-form-submit {
   width: 128px;
   height: 25px; 
   line-height: 25px;
@@ -2620,12 +2611,12 @@ p#feedback-message {
   cursor: pointer;
 } 
 
-#feedback-form-submit:hover {
+.feedback-form-submit:hover {
   background-image: url(../img/button-hover.jpg);
   background-repeat: repeat-x; 
 }  
 
-#feedback-form-submit:active {
+.feedback-form-submit:active {
   background-image: none;
   background-color: #598806;
 }

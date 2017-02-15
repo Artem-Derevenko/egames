@@ -6,6 +6,9 @@ import Page from './Page';
 import PageListProducts from './PageListProducts';
 import PageAbout from './PageAbout';
 import PageNews from './PageNews';
+import PagePay from './PagePay';
+import PageDelivery from './PageDelivery';
+import PageContacts from './PageContacts';
 
 const config = {
     apiKey: "AIzaSyBUnRxSmHuHCpX48JnI34KiokYo1cMARWI",
@@ -22,9 +25,9 @@ ReactDOM.render(
 		<Route component={Page}>
 			<Route path="about" component={PageAbout} />
 			<Route path="news" component={PageNews} />
-			<Route path="pay" component={PageAbout} />
-			<Route path="delivery" component={PageAbout} />
-			<Route path="contacts" component={PageAbout} />
+			<Route path="pay" component={PagePay} />
+			<Route path="delivery" component={PageDelivery} />
+			<Route path="contacts" component={PageContacts} />
 			<Route path="/(:category)" component={PageListProducts} /> 
 		</Route> 
 	</Router>,
