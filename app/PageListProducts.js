@@ -38,11 +38,48 @@ class PageListProducts extends React.Component {
         });
     }
 
-    _sortArr(arr) { 
+    //сортировка "от А до Я"
+    _sortArr_1(arr) { 
         var n = arr.length;
         for (var i = 0; i < n-1; i++)
          { for (var j = 0; j < n-1-i; j++)
             { if (arr[j+1].title.charAt(0).toLowerCase() < arr[j].title.charAt(0).toLowerCase())
+               { var t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t; }
+            }
+         }                     
+        return arr;
+    }
+
+    //сортировка "Популярное"
+    _sortArr_2(arr) { 
+        var n = arr.length;
+        for (var i = 0; i < n-1; i++)
+         { for (var j = 0; j < n-1-i; j++)
+            { if (Number(arr[j+1].rating) > Number(arr[j].rating))
+               { var t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t; }
+            }
+         }                     
+        return arr;
+    }
+
+    //сортировка "От дешевых к дорогим"
+    _sortArr_3(arr) { 
+        var n = arr.length;
+        for (var i = 0; i < n-1; i++)
+         { for (var j = 0; j < n-1-i; j++)
+            { if (Number(arr[j+1].price) < Number(arr[j].price))
+               { var t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t; }
+            }
+         }                     
+        return arr;
+    }
+
+    //сортировка "От дорогих к дешевым"
+    _sortArr_4(arr) { 
+        var n = arr.length;
+        for (var i = 0; i < n-1; i++)
+         { for (var j = 0; j < n-1-i; j++)
+            { if (Number(arr[j+1].price) > Number(arr[j].price))
                { var t = arr[j+1]; arr[j+1] = arr[j]; arr[j] = t; }
             }
          }                     
@@ -55,9 +92,28 @@ class PageListProducts extends React.Component {
 
         if (this.state.sorting_prod == "От А до Я") {
 
-            product_List = this._sortArr(product_List)
+            product_List = this._sortArr_1(product_List)
 
-        };
+        }
+
+        else if (this.state.sorting_prod == "Популярное") {
+
+            product_List = this._sortArr_2(product_List)
+
+        }
+
+        else if (this.state.sorting_prod == "От дешевых к дорогим") {
+
+            product_List = this._sortArr_3(product_List)
+
+        }
+
+        else if (this.state.sorting_prod == "От дорогих к дешевым") {
+
+            product_List = this._sortArr_4(product_List)
+
+        }
+
         //вывод всех категорий, если в адресной страке не указана категория
         if (game_category === undefined) {
             return (

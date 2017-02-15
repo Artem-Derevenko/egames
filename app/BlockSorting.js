@@ -16,7 +16,6 @@ class BlockSorting extends React.Component {
                             <option>От дешевых к дорогим</option>
                             <option>От дорогих к дешевым</option>
                             <option>Популярное</option>
-                            <option>Новинки</option>
                         </select>
                     </li>
                 </ul>
