@@ -769,11 +769,11 @@ input:-webkit-autofill {
 .products-title-grid a {
   font: bold 18px Arial; 
   color: #888888;
-  text-decoration: none;
 }
 
 .products-title-grid a:hover {
   color: #074586;
+  text-decoration: none;
 }
 
 .images-grid {
@@ -2342,12 +2342,12 @@ input:-webkit-autofill {
   text-align: center;
   font: bold 16px Arial; 
   color: #649e13;
-  text-decoration: none;
   margin-bottom: 15px;
 }
 
 .title-block-news a:hover {
   color: #276C1E;
+  text-decoration: none;
 }
 
 .basket-line-medium {
@@ -2634,8 +2634,8 @@ p.feedback-message {
 }
 
 .view-product-title {
-  text-align: center;
-  font: bold 22px Arial; 
+  text-align: left;
+  font: bold 26px Arial; 
   color: #1874CD;
   margin-bottom: 35px;
 }
@@ -2781,14 +2781,18 @@ div.tabs_content > div.active {
 }
 
 .my-comment {
+  display: inline-block;
+  margin-bottom: 15px;
   text-align: left;
-  font: 14px Arial; 
+  font: 16px Arial; 
   color: #1874CD;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .my-comment:hover {
   color: #0B3660;
+  text-decoration: none;
 }
 
 .block-my-comment {
@@ -2797,6 +2801,11 @@ div.tabs_content > div.active {
   height: auto;
   border: 1px solid #ccc; 
   overflow: hidden;
+  padding-top: 20px;
+}
+
+.block-my-comment.hide {
+  display: block;
 }
 
 .my-comment-close {
@@ -2891,10 +2900,12 @@ div.tabs_content > div.active {
   width: 100px;
   height: 25px;
   cursor: pointer;
-  margin: 20px auto;
+  margin: 20px 0px 20px 192px;
   background-image: url(../img/button.jpg);
   background-repeat: repeat-x; 
   border: 1px solid #558107;
+  color: #fff;
+  font-size: 14px;
 }
 
 
@@ -2929,12 +2940,12 @@ div.tabs_content > div.active {
   text-align: justify;
 }
 
-.author-date {
+.author {
   font: 14px Arial; 
   color: #888888;
 }
 
-p.author-date span {
+p.author span {
   display: inline-block;
   font: bold 14px Arial; 
   color: #888888;

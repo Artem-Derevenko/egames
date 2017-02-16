@@ -1,7 +1,21 @@
 import React from 'react';
 import BlockCommentsItem from './BlockCommentsItem';
+import CommentsForm from './CommentsForm';
 
 class BlockComments extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isShowComments: false
+        }
+    }
+
+    _toggleComments() {
+        this.setState({
+            isShowComments: !this.state.isShowComments
+        });
+    }
+
 	render() {
         //получаем массив с комментариями
         const commentList = this.props.comments;
@@ -9,25 +23,13 @@ class BlockComments extends React.Component {
 		return (
             <div>
                 <p className="info-comment-ok"></p>
-                <span className="my-comment">Оставить свой отзыв</span>
-                <div className="block-my-comment">
-                    <p><img className="my-comment-close" src="../img/reg-close.png" /></p>
-                    <div className="comment-name-wrapper">
-                        <span>Имя*</span>
-                        <div className="comment-name-border">
-                            <input type="text" name="comment_name" className="comment-input-name" />
-                        </div>
-                    </div>
-                    <div className="comment-text-wrapper">
-                        <span>Комментарий</span>
-                        <textarea name="comment-text" className="comment-text"></textarea>
-                    </div>
-                    <p className="coment-info">Публикация отзывов происходит после предварительной модерации</p>
-                    <div className="my-comment-button"><p>Отправить</p></div>
+                <span className="my-comment" onClick={this._toggleComments.bind(this)}>{this.state.isShowComments ? 'Скрыть форму отправки отзыва' : 'Оставить свой отзыв'}</span>
+                <div className={this.state.isShowComments ? 'block-my-comment hide' : 'block-my-comment'}>
+                    <CommentsForm />
                 </div>
 
                 {   
-                   (commentList !== '') ? ( commentList.map((item, i) => <BlockCommentsItem key={i} name={item.name} date={item.date} text={item.text} />)) : false
+                   (commentList !== '') ? ( commentList.map((item, i) => <BlockCommentsItem key={i} name={item.name} text={item.text} />)) : false
                 }
                 <p className={ (commentList !== '') ? "comment-not-found hide" : "comment-not-found" }>Отзывы для данного товара отсутствуют</p>
             </div>
