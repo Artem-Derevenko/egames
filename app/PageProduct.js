@@ -26,17 +26,19 @@ class PageProduct extends React.Component {
     }
     
    	render() {
-        console.log(this.state.show_tabs_item);
+        //получаем id продукта, ка который перешли
         const product_id = this.props.params.id;
         const product_List = this.state.product;
         var productItem = [];
 
+        //получаем продукт с данным id из базы
         product_List.map((item) => {
             if (item.id == product_id) {
                 productItem.push(item)
             }
         });
 
+        //выводил продукт либо страницу 404, если массив с продуктом productItem пустой
         if (productItem.length !== 0) {
 
             return (
@@ -63,7 +65,7 @@ class PageProduct extends React.Component {
                         </div> 
                     </div>
                     <p className="view-product-description">{productItem[0].text}</p>
-                    <BlockGameTabs showTabs={this._showTabs.bind(this)} showTabsItem={this.state.show_tabs_item} id={productItem[0].id} title={productItem[0].title} img={productItem[0].img} price={productItem[0].price} votes={productItem[0].votes} rating={productItem[0].rating} text={productItem[0].text} characteristics={productItem[0].characteristics} requirements={productItem[0].requirements} reviews={productItem[0].reviews} />
+                    <BlockGameTabs showTabs={this._showTabs.bind(this)} showTabsItem={this.state.show_tabs_item} id={productItem[0].id} title={productItem[0].title} img={productItem[0].img} price={productItem[0].price} votes={productItem[0].votes} rating={productItem[0].rating} text={productItem[0].text} characteristics={productItem[0].characteristics} requirements={productItem[0].requirements} reviews={(productItem[0].reviews === undefined) ? "" : productItem[0].reviews } />
                 </div>
             )
         }

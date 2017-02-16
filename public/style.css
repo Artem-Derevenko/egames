@@ -2930,13 +2930,15 @@ div.tabs_content > div.active {
 }
 
 .author-date {
-  font: 11px Arial; 
+  font: 14px Arial; 
   color: #888888;
 }
 
 p.author-date span {
+  display: inline-block;
   font: bold 14px Arial; 
   color: #888888;
+  margin-right: 15px;
 }
 
 p.plus-comment, 
@@ -2965,6 +2967,10 @@ p.text-comment {
   color: #888888;
   text-align: center;
   margin-top: 25px;
+}
+
+.comment-not-found.hide {
+  display: none;
 }
 
 /*************** РЕЙТИНГ *****************/
