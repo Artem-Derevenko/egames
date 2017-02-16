@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import { Link } from 'react-router';
 
 class BlockProducts extends React.Component {
 	render() {
@@ -10,7 +11,7 @@ class BlockProducts extends React.Component {
                 <div className="products-grid">
                     <div className="products-grid-content">
                         <div className="products-title-grid">
-                            <p><a href={this.props.id}>{this.props.title}</a></p>
+                            <p><Link to={"product/" + this.props.id}>{this.props.title}</Link></p>
                         </div>
                         <div className="images-grid">
                             <img src={this.props.img} />
@@ -48,7 +49,7 @@ class BlockProducts extends React.Component {
                         <img src={this.props.img}  />
                     </p>
                     <div className="products-title-list">
-                        <p><a href={this.props.id}>{this.props.title}</a></p>
+                        <p><Link to={"product/" + this.props.id}>{this.props.title}</Link></p>
                     </div>
                     <div className="list-container-price-button">    
                         <div className="price-list"><p>Цена: <span>{this.props.price}</span> грн.</p></div>

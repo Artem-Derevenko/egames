@@ -767,7 +767,7 @@ input:-webkit-autofill {
 }
 
 .products-title-grid a {
-  font: bold 15px Arial; 
+  font: bold 18px Arial; 
   color: #888888;
   text-decoration: none;
 }
@@ -2300,7 +2300,6 @@ input:-webkit-autofill {
   font: 14px Arial; 
   color: #888888;
   line-height: 24px;
-  text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
 }
 
 
@@ -2336,7 +2335,6 @@ input:-webkit-autofill {
   font: 14px Arial; 
   color: #888888;
   line-height: 18px;
-  text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
 }
 
 .title-block-news a {
@@ -2427,7 +2425,6 @@ input:-webkit-autofill {
   padding: 0px 35px;
   line-height: 20px;
   text-align: justify;
-  text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
 }
 
 .blok-delivery ul {
@@ -2625,25 +2622,25 @@ p.feedback-message {
 
 /************* Страница с выводом информации о отдельном товаре ******************/
 
-#blok-products {
-  width: 89.9%;
-  min-height: 875px;
-  height:expression(this.height< 925?'925px':'auto'); 
+.blok-products {
+  width: 100%;
   height: auto;
   background-color: #F3F3F3;
   border: 1px solid #B3B3B3; 
   text-align: center;
-  padding: 35px 5%;
+  padding: 35px 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-#view-product-title {
+.view-product-title {
   text-align: center;
-  font: bold 18px Arial; 
+  font: bold 22px Arial; 
   color: #1874CD;
   margin-bottom: 35px;
 }
 
-#view-product-img {
+.view-product-img {
   width: 50%;
   height: 377px;
   float: left; 
@@ -2651,7 +2648,7 @@ p.feedback-message {
   margin-right: 3%;
 }
 
-#view-product-img img {
+.view-product-img img {
   display: block;
   width: 300px;
   height: 375px;
@@ -2659,57 +2656,56 @@ p.feedback-message {
   margin: 0px auto;
 }
 
-#view-product-price-button {
+.view-product-price-button {
   width: 47%;
   height: auto;
   overflow: hidden;
   float: left; 
 }
 
-#view-product-rating-list {
+.view-product-rating-list {
   width: 170px;
   height: 40px;
   text-align: right; 
   margin: 0px auto; 
 }
 
-#view-product-price {
+.view-product-price {
   width: 100%;
   height: auto; 
   margin-top: 50px; 
   margin-bottom: 50px;  
 }
 
-#view-product-price p {
+.view-product-price p {
   font: 18px Arial; 
   color: #6E6E6E;
   text-align: center; 
 }
 
-#view-product-price span {
+.view-product-price span {
   font: bold 22px Arial; 
   color: #333333;
 }
 
-#view-product-button-container-wrapper {
+.view-product-button-container-wrapper {
   width: 100%;
   height: 30px; 
   margin-bottom: 50px; 
 }
 
-#view-product-button-container {
+.view-product-button-container {
   width: 219px;
   height: 30px;
   margin: 0px auto;
 }
 
-#view-product-description {
+.view-product-description {
   text-align: left;
   font: 14px Arial; 
   color: #888888;
   line-height: 20px;
   text-align: justify;
-  text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
   //margin-top: -35px;
 }
 
@@ -2718,6 +2714,9 @@ ul.tabs {
   position: relative;
   list-style: none; 
   width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
   margin-top: 30px;
 }
 
@@ -2739,7 +2738,7 @@ ul.tabs li.active {
   margin-bottom: -1px; 
 }
 
-ul.tabs li a {
+ul.tabs li span {
   display: block;
   padding: 5px 15px; 
   color: #777; 
@@ -2747,9 +2746,10 @@ ul.tabs li a {
   outline: none; 
   text-decoration: none; 
   font-family: Arial;
+  cursor: pointer;
 }
 
-ul.tabs li.active a {
+ul.tabs li.active span {
   color: #649e13;
 }
 
@@ -2767,28 +2767,31 @@ div.tabs_content > div {
   font: 14px Arial; 
   color: #888888;
   line-height: 20px;
-} /* suggested to use display:none so that if the html is very long it wont jump badly */
+} 
 
+div.tabs_content > div.active {
+  display: block;
+} 
 
 /* блок Отзывы на странице Товар*/
-#info-comment-ok {
+.info-comment-ok {
   text-align: center;
   font: 14px Arial; 
   margin-bottom: 15px;
 }
 
-#my-comment {
+.my-comment {
   text-align: left;
   font: 14px Arial; 
   color: #1874CD;
   cursor: pointer;
 }
 
-#my-comment:hover {
+.my-comment:hover {
   color: #0B3660;
 }
 
-#block-my-comment {
+.block-my-comment {
   display: none;
   width: 100%;
   height: auto;
@@ -2796,7 +2799,7 @@ div.tabs_content > div {
   overflow: hidden;
 }
 
-#my-comment-close {
+.my-comment-close {
   display: block;
   float: right;
   width: 25px;
@@ -2805,7 +2808,7 @@ div.tabs_content > div {
   clear: both;
 }
 
-#comment-name-wrapper {
+.comment-name-wrapper {
   width: 85%;
   height: auto;
   margin: 0px auto;
@@ -2813,14 +2816,14 @@ div.tabs_content > div {
   overflow: hidden;
 }
 
-#comment-name-wrapper span {
+.comment-name-wrapper span {
   display: block;
   width: 140px;
   height: auto;
   float: left;
 }
 
-#comment-name-border {
+.comment-name-border {
   width: 180px;
   height: 25px;
   border-color: #CACACA;
@@ -2831,7 +2834,7 @@ div.tabs_content > div {
   padding: 0px 7px;
 }
 
-#comment-name-border input {
+.comment-name-border input {
   display: block;
   width: 180px;
   height: 25px;
@@ -2843,9 +2846,9 @@ div.tabs_content > div {
 }
 
 
-#comment-plus-wrapper, 
-#comment-minus-wrapper, 
-#comment-text-wrapper {
+.comment-plus-wrapper, 
+.comment-minus-wrapper, 
+.comment-text-wrapper {
   width: 85%;
   height: auto;
   margin: 0px auto;
@@ -2853,18 +2856,18 @@ div.tabs_content > div {
   overflow: hidden;
 }
 
-#comment-plus-wrapper span, 
-#comment-minus-wrapper span, 
-#comment-text-wrapper span {
+.comment-plus-wrapper span, 
+.comment-minus-wrapper span, 
+.comment-text-wrapper span {
   display: block;
   width: 140px;
   height: auto;
   float: left;
 }
 
-#comment-plus,
-#comment-minus,
-#comment-text {
+.comment-plus,
+.comment-minus,
+.comment-text {
   display: block;
   width: 220px;
   height: 92px;
@@ -2878,13 +2881,13 @@ div.tabs_content > div {
   color: #777777;
 }
 
-#coment-info {
+.coment-info {
   margin: 15px auto;
   text-align: center;
   font: 12px Arial; 
 }
 
-#my-comment-button {
+.my-comment-button {
   width: 100px;
   height: 25px;
   cursor: pointer;
@@ -2895,17 +2898,17 @@ div.tabs_content > div {
 }
 
 
-#my-comment-button:hover {
+.my-comment-button:hover {
   background-image: url(../img/button-hover.jpg);
   background-repeat: repeat-x; 
 }  
 
-#my-comment-button:active {
+.my-comment-button:active {
   background-image: none;
   background-color: #598806;
 }  
 
-#my-comment-button p {
+.my-comment-button p {
   width: 100px;
   text-align: center;
   font: 14px Arial; 
@@ -2955,10 +2958,9 @@ p.minus-comment span {
 
 p.text-comment {
   margin-top: 15px;
-  text-indent: 20px; /* Добавить отступ к первой строке каждого абзаца. */
 }
 
-#comment-not-found {
+.comment-not-found {
   font: 14px Arial; 
   color: #888888;
   text-align: center;

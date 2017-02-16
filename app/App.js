@@ -9,6 +9,7 @@ import PageNews from './PageNews';
 import PagePay from './PagePay';
 import PageDelivery from './PageDelivery';
 import PageContacts from './PageContacts';
+import PageProduct from './PageProduct';
 
 const config = {
     apiKey: "AIzaSyBUnRxSmHuHCpX48JnI34KiokYo1cMARWI",
@@ -28,6 +29,7 @@ ReactDOM.render(
 			<Route path="pay" component={PagePay} />
 			<Route path="delivery" component={PageDelivery} />
 			<Route path="contacts" component={PageContacts} />
+			<Route path="product/:id" component={PageProduct} />
 			<Route path="/(:category)" component={PageListProducts} /> 
 		</Route> 
 	</Router>,
