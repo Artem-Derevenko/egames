@@ -5,6 +5,8 @@ class CommentsForm extends React.Component {
     _submitForm(event) {
         event.preventDefault();
 
+        const id_product = event.target.getAttribute("data-id");
+        const countComments = event.target.getAttribute("data-comments");
         const author = this._author.value;
         const comment = this.refs.comment.value;
 
@@ -17,15 +19,12 @@ class CommentsForm extends React.Component {
             'text': comment
         };
 
-        firebase.database().ref().child("productList").child("id").push(commentObj).then(() => {
-            this._author.value = '';
-            this.refs.comment.value = '';
-        });
+        firebase.database().ref("productList/"+ id_product +"/reviews").child(countComments).set(commentObj);
     }
 
 	render() {
 		return (
-			<form className="comments-form" onSubmit={this._submitForm.bind(this)}>
+			<form className="comments-form" data-id={this.props.id} data-comments={this.props.comments} onSubmit={this._submitForm.bind(this)}>
                 <div className="comment-name-wrapper">
                     <span>Имя*</span>
                     <div className="comment-name-border">

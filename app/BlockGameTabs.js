@@ -15,7 +15,7 @@ class BlockGameTabs extends React.Component {
                     <div className={(this.props.showTabsItem == 1) ? "active" : "" }>{this.props.characteristics}</div>
                     <div className={(this.props.showTabsItem == 2) ? "active" : "" }>{this.props.requirements}</div>
                     <div className={(this.props.showTabsItem == 3) ? "active" : "" }>
-                        <BlockComments comments={this.props.reviews} />
+                        <BlockComments comments={this.props.reviews} id={this.props.id} />
                     </div>
                 </div>
             </div>

@@ -24,6 +24,21 @@ class PageProduct extends React.Component {
             show_tabs_item: event.currentTarget.getAttribute('data-id')
         });
     }
+
+    _addVotes(event) {
+        const id_product = event.target.getAttribute("data-id");
+        const countVotes = event.target.getAttribute("data-count-vote");
+        const vote = event.target.getAttribute("data-vote");
+        const rating = event.target.getAttribute("data-rating");
+
+        if (!(id_product.length && countVotes.length && vote.length && rating.length)) {
+            return;
+        }
+
+        firebase.database().ref("productList/"+ id_product).child('rating').set(( (Number(rating)*Number(countVotes)) + Number(vote)) / (Number(countVotes) + 1) );
+        firebase.database().ref("productList/"+ id_product).child('votes').set( Number(countVotes) + 1 );
+    }
+
     
    	render() {
         //получаем id продукта, ка который перешли
@@ -48,11 +63,11 @@ class PageProduct extends React.Component {
                     <div className="view-product-price-button">
                         <div className="rating-wrapper">
                             <ul className="rating">
-                                <li className="current" style={{width: productItem[0].rating * 20 + '%'}}><span className="star1" title="очень плохо" data-vote="1"></span></li>
-                                <li><span className="star2" title="плохо" data-vote="2"></span></li>
-                                <li><span className="star3" title="нормально" data-vote="3"></span></li>
-                                <li><span className="star4" title="хорошо" data-vote="4"></span></li>
-                                <li><span className="star5" title="отлично" data-vote="5"></span></li>
+                                <li className="current" style={{width: productItem[0].rating * 20 + '%'}}><span className="star1" title="очень плохо" data-vote="1" data-id={productItem[0].id} data-count-vote={productItem[0].votes} data-rating={productItem[0].rating} onClick={this._addVotes.bind(this)}></span></li>
+                                <li><span className="star2" title="плохо" data-vote="2" data-id={productItem[0].id} data-count-vote={productItem[0].votes} data-rating={productItem[0].rating} onClick={this._addVotes.bind(this)}></span></li>
+                                <li><span className="star3" title="нормально" data-vote="3" data-id={productItem[0].id} data-count-vote={productItem[0].votes} data-rating={productItem[0].rating} onClick={this._addVotes.bind(this)}></span></li>
+                                <li><span className="star4" title="хорошо" data-vote="4" data-id={productItem[0].id} data-count-vote={productItem[0].votes} data-rating={productItem[0].rating} onClick={this._addVotes.bind(this)}></span></li>
+                                <li><span className="star5" title="отлично" data-vote="5" data-id={productItem[0].id} data-count-vote={productItem[0].votes} data-rating={productItem[0].rating} onClick={this._addVotes.bind(this)}></span></li>
                             </ul>
                             <span className="count-votes">голосов: {productItem[0].votes}</span>
                         </div>    

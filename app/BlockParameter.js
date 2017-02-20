@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import BlockParameterDeveloper from './BlockParameterDeveloper';
 import BlockParameterPlatform from './BlockParameterPlatform';
 import ReactMixin from 'react-mixin';
@@ -9,12 +10,34 @@ class BlockParameter extends React.Component {
 	constructor() {
         super();
         this.state = {
-            product: []
+            product: [],
+            start_price: 0,
+            end_price: 10000,
+            platform_parameter: [],
+            developer_parameter: []
         }
     }
 
     componentDidMount() {
         this.bindAsArray(firebase.database().ref().child("productList"), "product");
+    }
+
+    _submitForm(event) {
+        event.preventDefault();
+        document.location.href ='#/parameter';
+        console.log(this.state.start_price + "//" + this.state.end_price);
+    }
+
+    _startPriceChange(event) {
+        this.setState({
+            start_price: event.target.value
+        });
+    }
+
+     _endPriceChange(event) {
+        this.setState({
+            end_price: event.target.value
+        });
     }
 
 	render() {
@@ -64,19 +87,19 @@ class BlockParameter extends React.Component {
 				</div>
 				<div className="conteniar-wrapper">
 					<p className="filter-title">Стоимость:</p>
-					<form method="GET" action="search_filter.php">
+					<form onSubmit={this._submitForm.bind(this)}>
 						<div className="block-input-price">
 							<div>
 								<p>От</p>
 							</div>
 							<div className="border-input-price">
-								<input type="text" id="start-price" name="start_price" value="50" />
+								<input type="text" id="start-price" ref="start_price" onChange={this._startPriceChange} />
 							</div>
 							<div>
 								<p>До</p>
 							</div>
 							<div className="border-input-price">
-								<input type="text" id="end-price" name="end_price" value="5000" />
+								<input type="text" id="end-price" ref="end_price" onChange={this._endPriceChange} />
 							</div>
 							<div>
 								<p>грн.</p>
@@ -97,7 +120,7 @@ class BlockParameter extends React.Component {
 			                }
 						</ul> 
 						<div className="button-param-search-border">
-							<input type="submit" name="submit" id="button-param-search" value="Найти" />
+							<input type="submit" value="Найти" className="button-param-search" />
 						</div>
 					</form>
 				</div>

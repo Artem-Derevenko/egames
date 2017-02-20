@@ -25,7 +25,7 @@ class BlockComments extends React.Component {
                 <p className="info-comment-ok"></p>
                 <span className="my-comment" onClick={this._toggleComments.bind(this)}>{this.state.isShowComments ? 'Скрыть форму отправки отзыва' : 'Оставить свой отзыв'}</span>
                 <div className={this.state.isShowComments ? 'block-my-comment hide' : 'block-my-comment'}>
-                    <CommentsForm />
+                    <CommentsForm comments={(commentList =='') ? "0" : commentList.length} id={this.props.id} />
                 </div>
 
                 {   
