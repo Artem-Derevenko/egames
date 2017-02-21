@@ -20,6 +20,9 @@ class CommentsForm extends React.Component {
         };
 
         firebase.database().ref("productList/"+ id_product +"/reviews").child(countComments).set(commentObj);
+
+        event.target.querySelector("#name").value = "";
+        event.target.querySelector("#text").value = "";
     }
 
 	render() {
