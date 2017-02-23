@@ -10,11 +10,7 @@ class BlockParameter extends React.Component {
 	constructor() {
         super();
         this.state = {
-            product: [],
-            start_price: 0,
-            end_price: 10000,
-            platform_parameter: [],
-            developer_parameter: []
+            product: []
         }
     }
 
@@ -24,20 +20,13 @@ class BlockParameter extends React.Component {
 
     _submitForm(event) {
         event.preventDefault();
-        document.location.href ='#/parameter';
-        console.log(this.state.start_price + "//" + this.state.end_price);
-    }
+        const startPrice = event.target.querySelector("#start-price").value;
+        const endPrice = event.target.querySelector("#end-price").value;
+        this.props.editStartPrice(startPrice);
+        this.props.editEndPrice(endPrice);
+        // this.props.editEndPrice.bind(endPrice);
 
-    _startPriceChange(event) {
-        this.setState({
-            start_price: event.target.value
-        });
-    }
 
-     _endPriceChange(event) {
-        this.setState({
-            end_price: event.target.value
-        });
     }
 
 	render() {
@@ -93,13 +82,13 @@ class BlockParameter extends React.Component {
 								<p>От</p>
 							</div>
 							<div className="border-input-price">
-								<input type="text" id="start-price" ref="start_price" onChange={this._startPriceChange} />
+								<input type="text" id="start-price" />
 							</div>
 							<div>
 								<p>До</p>
 							</div>
 							<div className="border-input-price">
-								<input type="text" id="end-price" ref="end_price" onChange={this._endPriceChange} />
+								<input type="text" id="end-price" />
 							</div>
 							<div>
 								<p>грн.</p>
