@@ -31,7 +31,7 @@ ReactDOM.render(
 			<Route path="delivery" component={PageDelivery} />
 			<Route path="contacts" component={PageContacts} />
 			<Route path="product/:id" component={PageProduct} />
-			<Route path="parameter" component={PageListProductsParameter} />
+			<Route path="parameter/(:parameter)" component={PageListProductsParameter} />
 			<Route path="/(:category)" component={PageListProducts} /> 
 		</Route> 
 	</Router>,

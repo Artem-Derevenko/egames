@@ -87,30 +87,41 @@ class PageListProductsParameter extends React.Component {
     }
 
    	render() {
-		var product_List = this.state.product;
-        const game_category = this.props.params.category; 
 
+        var product_List = this.state.product;
+
+        //сортировка по параметрам, полученый из адресной строки
+        const parameter_start_price = this.props.params.parameter; 
+        const arr_parameter = parameter_start_price.split("&");
+        const start_price = arr_parameter[0].substring(11);
+        const end_price = arr_parameter[1].substring(9);
+        var product_List_parameter = [];
+
+         product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_parameter.push(item) : false);
+
+
+        //сортировка списка товара
         if (this.state.sorting_prod == "От А до Я") {
 
-            product_List = this._sortArr_1(product_List)
+            product_List_parameter = this._sortArr_1(product_List_parameter)
 
         }
 
         else if (this.state.sorting_prod == "Популярное") {
 
-            product_List = this._sortArr_2(product_List)
+            product_List_parameter = this._sortArr_2(product_List_parameter)
 
         }
 
         else if (this.state.sorting_prod == "От дешевых к дорогим") {
 
-            product_List = this._sortArr_3(product_List)
+            product_List_parameter = this._sortArr_3(product_List_parameter)
 
         }
 
         else if (this.state.sorting_prod == "От дорогих к дешевым") {
 
-            product_List = this._sortArr_4(product_List)
+            product_List_parameter = this._sortArr_4(product_List_parameter)
 
         }
 
@@ -120,7 +131,7 @@ class PageListProductsParameter extends React.Component {
                 <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                 <div className="blok-center-contents">
                     {   
-                        product_List.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
+                        product_List_parameter.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
                     }
                 </div>
             </div>

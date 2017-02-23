@@ -18,15 +18,12 @@ class BlockParameter extends React.Component {
         this.bindAsArray(firebase.database().ref().child("productList"), "product");
     }
 
+    //формируем строку с параметрами выбора товара
     _submitForm(event) {
         event.preventDefault();
         const startPrice = event.target.querySelector("#start-price").value;
         const endPrice = event.target.querySelector("#end-price").value;
-        this.props.editStartPrice(startPrice);
-        this.props.editEndPrice(endPrice);
-        // this.props.editEndPrice.bind(endPrice);
-
-
+        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 );
     }
 
 	render() {
