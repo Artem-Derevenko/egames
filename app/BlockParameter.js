@@ -24,6 +24,7 @@ class BlockParameter extends React.Component {
         const startPrice = event.target.querySelector("#start-price").value;
         const endPrice = event.target.querySelector("#end-price").value;
 
+        //получаем массив с выбранными разработчиками
         var arr_developer = [];
         var developer_activ = event.target.querySelectorAll('.checkdevelopers');
 
@@ -35,11 +36,24 @@ class BlockParameter extends React.Component {
         		arr_developer.push(titleDev);
   			}
         };
+
+        //получаем массив с выбранными платформами
+        var arr_platform = [];
+        var platform_activ = event.target.querySelectorAll('.checkplatforms');
+
+        for (var i = 0; i < platform_activ.length; i++) {
+        	if (platform_activ[i].checked == true) { 
+
+        		var idDev = platform_activ[i].getAttribute("id");
+        		var titleDev = event.target.querySelector("label[for=" + idDev + "]").innerHTML;
+        		arr_platform.push(titleDev);
+  			}
+        };
  
         // console.log(arr_developer);
 
 
-        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 ) + "&developer=" + arr_developer.join(';');
+        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 ) + "&developer=" + arr_developer.join(';') + "&platform=" + arr_platform.join(';');
     }
 
 	render() {
