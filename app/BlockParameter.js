@@ -23,7 +23,23 @@ class BlockParameter extends React.Component {
         event.preventDefault();
         const startPrice = event.target.querySelector("#start-price").value;
         const endPrice = event.target.querySelector("#end-price").value;
-        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 );
+
+        var arr_developer = [];
+        var developer_activ = event.target.querySelectorAll('.checkdevelopers');
+
+        for (var i = 0; i < developer_activ.length; i++) {
+        	if (developer_activ[i].checked == true) { 
+
+        		var idDev = developer_activ[i].getAttribute("id");
+        		var titleDev = event.target.querySelector("label[for=" + idDev + "]").innerHTML;
+        		arr_developer.push(titleDev);
+  			}
+        };
+ 
+        // console.log(arr_developer);
+
+
+        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 ) + "&developer=" + arr_developer.join(';');
     }
 
 	render() {

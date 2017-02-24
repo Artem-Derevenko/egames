@@ -95,35 +95,43 @@ class PageListProductsParameter extends React.Component {
         const arr_parameter = parameter_start_price.split("&");
         const start_price = arr_parameter[0].substring(11);
         const end_price = arr_parameter[1].substring(9);
-        var product_List_parameter = [];
+        const developer = arr_parameter[2].substring(10).split(";"); 
+        var product_List_price = [];
+        var product_List_developer = [];
+        var product_all_parameter = [];
 
-         product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_parameter.push(item) : false);
+        //фильтруем по цене
+        product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_price.push(item) : false);
 
+        //фильтруем по производителям
+        for (var j = 0; j < developer.length; j++) {
+            product_List_price.map((item, i) => (item.developer == developer[j]) ? product_List_developer.push(item) : false); 
+        };
 
         //сортировка списка товара
         if (this.state.sorting_prod == "От А до Я") {
 
-            product_List_parameter = this._sortArr_1(product_List_parameter)
+            product_List_developer = this._sortArr_1(product_List_developer)
 
         }
 
         else if (this.state.sorting_prod == "Популярное") {
 
-            product_List_parameter = this._sortArr_2(product_List_parameter)
+            product_List_developer = this._sortArr_2(product_List_developer)
 
         }
 
         else if (this.state.sorting_prod == "От дешевых к дорогим") {
 
-            product_List_parameter = this._sortArr_3(product_List_parameter)
+            product_List_developer = this._sortArr_3(product_List_developer)
 
         }
 
         else if (this.state.sorting_prod == "От дорогих к дешевым") {
 
-            product_List_parameter = this._sortArr_4(product_List_parameter)
+            product_List_developer = this._sortArr_4(product_List_developer)
 
-        }
+        }  
 
         return (
             <div>
@@ -131,7 +139,7 @@ class PageListProductsParameter extends React.Component {
                 <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
                 <div className="blok-center-contents">
                     {   
-                        product_List_parameter.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
+                        product_List_developer.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
                     }
                 </div>
             </div>
