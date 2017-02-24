@@ -544,26 +544,26 @@ input:-webkit-autofill {
   background-color: #598806;
 }
 
-.result-search {
-  display: none;
+#result-search.visible {
   width: 470px;
   height: auto;
-  border-style: solid; 
-  border-color:  #BEBABA;
-  border-width: 0px 1px 1px 1px;
   background-color: #FFFFFF;
   clear: both;
+  margin-left: 1px;
 }
 
+#result-search.invisible {
+  display: none;
+}
 
-.result-search a {
+#result-search a {
   display: block;
   outline: none;
   background-color: #FFFFFF;
   text-decoration: none;
   font: 12px Arial; 
   color: #9C9C9C; 
-  padding: 3px 4px;
+  padding: 5px 4px;
 }
 
 .result-search a:hover {
