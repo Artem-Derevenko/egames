@@ -566,7 +566,7 @@ input:-webkit-autofill {
   padding: 5px 4px;
 }
 
-.result-search a:hover {
+#result-search a:hover {
   background-color: #efeced; 
 }
 
