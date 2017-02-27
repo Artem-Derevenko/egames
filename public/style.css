@@ -474,65 +474,54 @@ input:-webkit-autofill {
 /********** Блок поиска по сайту и сортировки вывода информации в средний блок *********/
 
 .block-search-conteniar {
-  width: 630px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
   margin: 0px auto; 
 } 
 
 .block-search {
-  width: 630px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
   margin: 0px auto; 
-  z-index: 1000;
-  position: absolute; 
+  position: relative;
+  z-index: 500;
+}
+
+.block-search form {
+  width: 100%;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input-search-border {
-  width: 470px;
-  height: 26px;
+  width: 100%;
+  height: 100%;
   outline: none;
-  border: 1px solid #BEBABA; 
   float: left; 
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input-search-border span {
   position: absolute;
   width: 25px;
   height: 25px;
+  margin-top: 6px;
   background-image: url(../img/search.jpg);
   background-repeat: no-repeat;
 }
 
  .input-search {
-  width: 435px;
-  height: 26px;
+  width: 100%;
+  height: 100%;
   outline: none;
-  line-height: 26px;
   padding: 0px 5px 0px 30px;
-  font: 13px Arial; 
-  color: #646464; 
-  //height: 21px;
-  //padding-top: 5px;
-  //margin-top: -1px;
- }
-
-.button-search-border {
-  width: 148px;
-  height: 25px;
-  outline: none;
-  border: 1px solid #558107;
-  float: right;
-} 
-
-.button-search {
-  width: 148px;
-  height: 25px; line-height: 25px;
   font: 14px Arial; 
-  color: #ffffff;
-  background-image: url(../img/button.jpg);
-  background-repeat: repeat-x; 
-  cursor: pointer;
-} 
+  color: #646464; 
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
 
 .button-search:hover {
   background-image: url(../img/button-hover.jpg);
@@ -545,25 +534,33 @@ input:-webkit-autofill {
 }
 
 #result-search.visible {
-  width: 470px;
+  width: 100%;
   height: auto;
   background-color: #FFFFFF;
+  border-top: 1px solid #BEBABA;
+  border-bottom: 1px solid #BEBABA;
   clear: both;
-  margin-left: 1px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #result-search.invisible {
   display: none;
 }
 
-#result-search a {
+#result-search a,
+.result-notfound {
   display: block;
   outline: none;
   background-color: #FFFFFF;
   text-decoration: none;
   font: 12px Arial; 
   color: #9C9C9C; 
-  padding: 5px 4px;
+  padding: 5px 4px 5px 30px;
+}
+
+.result-notfound.invisible {
+  display: none;
 }
 
 #result-search a:hover {

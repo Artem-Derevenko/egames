@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class BlockBasket extends React.Component {
 	render() {
@@ -10,9 +11,9 @@ class BlockBasket extends React.Component {
 				<div className="basket-conteniar-wrapper">
 					<img className="basket-img" src="../img/basket.png" />
 					<p className="conteniar-link">
-						<a href="basket.php?action=oneclick">
+						<Link to="basket">
 							Ваша корзина пуста
-						</a>
+						</Link>
 					</p>
 				</div>
 			</div>

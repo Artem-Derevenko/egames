@@ -8,7 +8,8 @@ class BlockSearch extends React.Component {
         super();
         this.state = {
             product: [],
-            str_search: ""
+            str_search: "",
+            result_notfound: true
         }
     }
 
@@ -47,10 +48,9 @@ class BlockSearch extends React.Component {
         var arr_rezult_search = [];
         var reg = this.state.str_search.toLowerCase();
 
-        if (document.getElementById("result-search") !== null) {document.getElementById("result-search").innerHTML = ""}
-        var resultList = document.getElementById("result-search");
-
-        console.log(resultList);
+        if (document.getElementById("result-list") !== null) {document.getElementById("result-list").innerHTML = ""}
+        var resultList = document.getElementById("result-list");
+        this.state.result_notfound = true;
 
         //выводим товар, соответствующий поиску
         for (var i = 0; i < arr_title.length; i++) {
@@ -60,7 +60,7 @@ class BlockSearch extends React.Component {
                 newLink.setAttribute("href", "#/product/" + arr_title[i].id );
                 newLink.innerHTML = arr_title[i].title;
                 resultList.appendChild(newLink);
-
+                this.state.result_notfound = false;
             }
         };
 
@@ -70,13 +70,13 @@ class BlockSearch extends React.Component {
                     <form>
                         <div className="input-search-border">
                             <span></span> 
-                            <input type="text" className="input-search" placeholder="Введите запрос" autocomplete="off" onChange={this._stringSearch.bind(this)} />
-                        </div>
-                        <div className="button-search-border">
-                            <input type="submit" className="button-search" value="Поиск по сайту" />
+                            <input type="text" className="input-search" placeholder="Поиск по названию игры" autocomplete="off" onChange={this._stringSearch.bind(this)} />
                         </div>
                     </form>
-                    <div id="result-search" className={(this.state.str_search !== "") ? "visible" : "invisible"}></div>
+                    <div id="result-search" className={(this.state.str_search !== "") ? "visible" : "invisible"}>
+                        <div id="result-list"></div>
+                        <span className={ (this.state.result_notfound === true) ? "result-notfound" : "result-notfound invisible"}>По данному запросу игры не найдены</span>
+                    </div>
                 </div>
             </div>
 		)
