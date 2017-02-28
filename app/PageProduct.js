@@ -40,7 +40,69 @@ class PageProduct extends React.Component {
         firebase.database().ref("productList/"+ id_product).child('votes').set( Number(countVotes) + 1 );
     }
 
-    
+    _addBasket(id, title, price, img) {
+        const idProd = id;
+        const titleProd = title;
+        const priceProd = price;
+        const imgProd = img;
+
+        //очистка сессии
+        // sessionStorage.removeItem("basket");
+
+        //проверяем на наличие сессии
+        if (sessionStorage["basket"] === undefined)  {
+
+            var product_item = {
+               id: idProd, 
+               info: {
+                   title: titleProd,
+                   count: 1,
+                   img: imgProd,
+                   price: priceProd
+                }
+            };
+
+            var prod_list = [];
+            prod_list.push(product_item);
+
+            sessionStorage["basket"] = JSON.stringify(prod_list);
+        }
+        //если сессия уже есть
+        else {
+            var arr_basket = JSON.parse(sessionStorage["basket"]);
+            var j = 0;
+
+            //проверяем на налицие такого же товара в корзине
+            for (var i = 0; i < arr_basket.length; i++) {
+                
+                //если товар уже есть
+                if ( arr_basket[i].id == idProd ) { 
+
+                    arr_basket[i].info.count++;
+                    j++
+                }
+            };
+
+            //если товара такого еще нет
+            if ( j == 0) {
+
+                var product_item = {
+                   id: idProd, 
+                   info: {
+                       title: titleProd,
+                       count: 1,
+                       img: imgProd,
+                       price: priceProd
+                    }
+                };
+
+                arr_basket.push(product_item);
+            }
+            
+            sessionStorage["basket"] = JSON.stringify(arr_basket);
+        }
+    }
+
    	render() {
         //получаем id продукта, ка который перешли
         const product_id = this.props.params.id;
@@ -76,7 +138,7 @@ class PageProduct extends React.Component {
                         <div className="view-product-button-container-wrapper">
                             <div className="view-product-button-container">
                                 <div className="buy-basket-list"><p>Купить</p></div>
-                                <div className="add-basket-list"><p>В корзину</p></div>
+                                <div className="add-basket-list" onClick={this._addBasket.bind(this, productItem[0].id, productItem[0].title, productItem[0].price, productItem[0].img) }><p>В корзину</p></div>
                             </div>
                         </div> 
                     </div>

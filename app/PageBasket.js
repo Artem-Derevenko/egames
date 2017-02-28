@@ -3,6 +3,7 @@ import Page404 from './Page404';
 import ReactMixin from 'react-mixin';
 import ReactFire from 'reactfire';
 import firebase from 'firebase';
+import BlockBasketItem from './BlockBasketItem';
 
 class PageBasket extends React.Component {
 	constructor() {
@@ -39,8 +40,8 @@ class PageBasket extends React.Component {
     }
 
    	render() {
+        var arr_basket = JSON.parse(sessionStorage["basket"]);
         return (
-
             <div className="basket-wrap">
                 <div className="block-step">
                     <ul>
@@ -59,29 +60,9 @@ class PageBasket extends React.Component {
                         <div className="header-price">Цена</div>                                     
                     </div>
                     <div className="basket-line"></div>
-                    <div className="basket-products">
-                        <div className="basket-products-img">
-                            <img  src="" />
-                        </div>
-                        <div className="basket-products-title">
-                            <p><a href="view_products">ddgd</a></p>
-                        </div>
-                        <div className="basket-products-count">
-                            <div className="count-minus"><span>&#8211;</span></div>
-                            <div className="count-input">
-                                <input maxlength="3" type="text"  id="input-id" className="input-count-products" value=""  />
-                            </div>
-                            <div className="count-plus"><span>+</span></div>
-                        </div>
-                        <div className="basket-products-price" id="tovar">
-                            <p><span className="basket-products-price-count">utuu</span> &#215; <span>555 грн.</span></p>
-                            <p className="basket-products-sum">222 грн.</p>
-                        </div>
-                        <div className="delete-products">
-                            <a href="basket.php"></a>
-                        </div>
-                    </div>
-                    <div className="basket-line"></div>
+                        {
+                            arr_basket.map((item, i) => <BlockBasketItem product_info={item} /> )
+                        }
                     <div className="all-price">К оплате: <span>jjvjvjv </span> грн.</div>
                     <div className="basket-button-container">
                         <a href="#" className="button-basket-delete"><span>Очистить</span></a>
@@ -178,7 +159,7 @@ class PageBasket extends React.Component {
                         </div>
                         <div className="basket-button-container">
                             <a href="#" className="button-basket-delete" onClick={this._step2.bind(this)}><span>Назад</span></a>
-                            <a href="#" className="button-basket-next"><span>Оплатить</span></a>
+                            <a href="#" className="button-basket-next"><span>Отправить</span></a>
                         </div>
                     </div>
                 </div>
