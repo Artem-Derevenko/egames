@@ -737,6 +737,22 @@ input:-webkit-autofill {
   flex-wrap: wrap;
 }
 
+.parameter_not {
+  width: 100%;
+  font: normal 28px Arial; 
+  color: #fff;
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.parameter_not404 {
+  width: 100%;
+  font: normal 80px Arial; 
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 40px 30px 0 30px;
+}
 
 .products-grid {
   width: 393px;
@@ -1764,7 +1780,7 @@ input:-webkit-autofill {
 
 /***************** Страница Корзина заказов. ШАГ 1 ****************/
 
-#basket-wrap {
+.basket-wrap {
   height: auto;
   overflow: hidden;
   background-color: #F3F3F3;
@@ -1772,42 +1788,45 @@ input:-webkit-autofill {
   padding: 20px 0px;
 }
 
-#block-step {
+.block-step {
+  display: block;
+  overflow: hidden;
+  width: 100%;
   height: 25px;
   text-align: left; 
-  padding-left: 15px;
+  padding: 0 30px;
 }
 
-#block-step li {
+.step1.active,
+.step2.active,
+.step3.active {
+  display: block;
+}
+
+.step1.inactive,
+.step2.inactive,
+.step3.inactive {
+  display: none;
+}
+
+.block-step li {
   list-style-type: none;
   float: left;
 }
 
-#block-step li a {
+.block-step li span {
   display: block;
   text-decoration: none;
-  font: bold 14px Arial; 
+  font: bold 16px Arial; 
   color: #777777;
-  cursor: default;
 }
 
-#block-step li a.active-link-step:hover {
-  color: #333333;
-  cursor: pointer;
-}
-
-#block-step li img {
+.block-step li img {
   margin: 0px 9px;
 }
 
-#block-step li a.active-step {
-  font: bold 14px Arial; 
+.block-step li span.active-step {
   color: #649e13;
-  cursor: default;
-}
-
-#line-margin-top {
-  margin-top: 50px;
 }
 
 .basket-line {
@@ -1817,7 +1836,11 @@ input:-webkit-autofill {
   background-image: url(../img/basket-line.png);
 }
 
-#header-basket {
+.line-margin-top {
+  margin-top: 40px;
+}
+
+.header-basket {
   width: 96%;
   height: 20px;
   margin: 0px auto;
@@ -1825,21 +1848,21 @@ input:-webkit-autofill {
   color: #1874CD; 
 }
 
-#header-title {
+.header-title {
   width: 63%;
   height: 35px;
   float: left;
   text-align: center;
 }
 
-#header-number {
+.header-number {
   width: 15%;
   height: 35px;
   float: left; 
   text-align: center; 
 }
 
-#header-price {
+.header-price {
   width: 15%;
   height: 35px;
   float: left; 
@@ -2041,7 +2064,7 @@ input:-webkit-autofill {
   background-color: #598806;
 }  
 
-#basket-not-product {
+.basket-not-product {
   color: #999999;
   font: 14px Arial;
   text-align: center; 
@@ -2051,7 +2074,7 @@ input:-webkit-autofill {
 
 /***************** Страница Корзина заказов. ШАГ 2 ****************/
 
-#block-order-info {
+.block-order-info {
   width: 650px;
   height: auto;
   margin: 0px auto; 
@@ -2064,22 +2087,22 @@ input:-webkit-autofill {
   color: #1874CD; 
 }
 
-#basket-line-step2-top {
+.basket-line-step2-top {
   margin-top: 40px;
   margin-bottom: 3px;
 }
 
-#basket-line-step2-bottom {
+.basket-line-step2-bottom {
   margin-bottom: 20px;
   margin-top: 3px;
 }
 
-#info-radio li {
+.info-radio li {
   list-style-type: none;
   margin: 0px auto 5px 20px;
 }
 
-#info-radio li label {
+.info-radio li label {
   font: 14px Arial; 
   color: #888888;
   margin-left: 4px; 
@@ -2117,7 +2140,7 @@ input:-webkit-autofill {
 }
 
 
-#line-form-order-note { 
+.line-form-order-note { 
   width: 630px;
   height: 95px;
   text-align: left;
@@ -2125,7 +2148,7 @@ input:-webkit-autofill {
 }
 
 
-#line-form-order-address { 
+.line-form-order-address { 
   width: 630px;
   height: 110px;
   text-align: left; 
@@ -2153,7 +2176,7 @@ input:-webkit-autofill {
   margin-left: 8px;
 }
 
-#button-step2-wrap {
+.button-step2-wrap {
   width: 100px;
   height: 25px;
   margin: 50px auto 30px auto;
@@ -2163,10 +2186,11 @@ input:-webkit-autofill {
   border: 1px solid #558107;
 }
 
-
 #button-basket-step2-next {
+  display: inline-block;
   width: 100px;
   height: 25px;
+  line-height: 25px;
   text-align: center;
   line-height: 25px;
   vertical-align: middle;
@@ -2174,8 +2198,8 @@ input:-webkit-autofill {
   color: #ffffff;
   background-color: transparent;
   cursor: pointer;
+  text-decoration: none;
 }
-
 
 #button-basket-step2-next:hover {
   background-image: url(../img/button-hover.jpg);
@@ -2187,18 +2211,21 @@ input:-webkit-autofill {
   background-color: #598806;
 }  
 
-
+#button-basket-step2-next span {
+    line-height: 25px;
+    vertical-align: middle;
+}
 
 /********************** Корзина заказов ШАГ 3 ***********************/
 
-#block-step3-info {
+.block-step3-info {
   width: 650px;
   height: auto;
   margin: 35px auto 0px auto; 
   overflow: hidden; 
 }
 
-#step3-title {
+.step3-title {
   text-align: center;
   font: 14px Arial; 
   color: #1874CD;
@@ -2231,7 +2258,7 @@ input:-webkit-autofill {
   text-align: left; 
 }
 
-#button-step3-wrap {
+.button-step3-wrap {
   width: 100px;
   height: 25px;
   margin: 50px auto 30px auto;

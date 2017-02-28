@@ -96,18 +96,13 @@ class PageListProductsParameter extends React.Component {
         const start_price = arr_parameter[0].substring(11);
         const end_price = arr_parameter[1].substring(9);
         const developer = arr_parameter[2].substring(10).split(";");
-        const platform = arr_parameter[3].substring(9).split(";");  console.log(developer);
+        const platform = arr_parameter[3].substring(9).split(";");  
         var product_List_price = [];
         var product_List_developer = [];
         var product_all_parameter = [];
 
         //фильтруем по цене
-        if (end_price == 0 ) {
-            product_List_price = product_List;
-        }
-        else {
-            product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_price.push(item) : false);
-        }
+        product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_price.push(item) : false);
 
         //фильтруем по производителям
         if (developer == "" ) {
@@ -155,17 +150,30 @@ class PageListProductsParameter extends React.Component {
 
         }  
 
-        return (
-            <div>
-                <BlockSearch />
-                <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
-                <div className="blok-center-contents">
-                    {   
-                        product_all_parameter.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
-                    }
+        if (product_all_parameter.length) {
+            return (
+                <div>
+                    <BlockSearch />
+                    <BlockSorting  productShow={this.state.productShow} sortState={this.state.sorting_prod} sortingChange={this._sortingChange.bind(this)} listShow={this._listShowProduct.bind(this)} gridShow={this._gridShowProduct.bind(this)} />
+                    <div className="blok-center-contents">
+                        {   
+                            product_all_parameter.map((item, i) => <BlockProducts key={i} productShow={this.state.productShow} id={item.id} title={item.title} img={item.img} price={item.price} votes={item.votes} rating={item.rating} description={item.description} />)
+                        }
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+
+        else {
+            return (
+                <div>
+                    <BlockSearch />
+                    <div className="blok-center-contents">
+                        <p className="parameter_not">По данному запросу игры не найдены! Проверьте правильность выбора параметров поиска</p>
+                    </div>
+                </div>
+            )
+        }
 	}
 }
 

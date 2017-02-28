@@ -2,6 +2,7 @@ import React from 'react';
 import BlockSearch from './BlockSearch';
 import BlockSorting from './BlockSorting';
 import BlockProducts from './BlockProducts';
+import Page404 from './Page404';
 import ReactMixin from 'react-mixin';
 import ReactFire from 'reactfire';
 import firebase from 'firebase';
@@ -114,7 +115,10 @@ class PageListProducts extends React.Component {
 
         }
 
-        //вывод всех категорий, если в адресной страке не указана категория
+        //проверка правильности указания категории
+        var count_cat = 0;
+        product_List.map((item, i) => (item.category == game_category) ? count_cat ++ : count_cat);
+
         if (game_category === undefined) {
             return (
                 <div>
@@ -129,8 +133,7 @@ class PageListProducts extends React.Component {
             )
         }
 
-        //вывод товара с конкретной категорией в адресной строке
-        else {
+        else if (count_cat > 0) {
             return (
                 <div>
                     <BlockSearch />
@@ -142,7 +145,15 @@ class PageListProducts extends React.Component {
                     </div>
                 </div>
             )
-        };
+        }
+
+        else {
+            return (
+                <div>
+                    <Page404 />
+                </div>
+            )
+        }
 		
 	}
 }

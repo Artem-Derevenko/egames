@@ -11,6 +11,7 @@ import PageDelivery from './PageDelivery';
 import PageContacts from './PageContacts';
 import PageProduct from './PageProduct';
 import PageBasket from './PageBasket';
+import Page404 from './Page404';
 import PageListProductsParameter from './PageListProductsParameter';
 
 const config = {
@@ -35,6 +36,7 @@ ReactDOM.render(
 			<Route path="basket" component={PageBasket} />
 			<Route path="parameter/(:parameter)" component={PageListProductsParameter} />
 			<Route path="/(:category)" component={PageListProducts} /> 
+			<Route path="*" component={Page404} />
 		</Route> 
 	</Router>,
 	document.getElementById('app')	 

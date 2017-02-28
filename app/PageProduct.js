@@ -4,6 +4,7 @@ import ReactMixin from 'react-mixin';
 import ReactFire from 'reactfire';
 import firebase from 'firebase';
 import BlockGameTabs from './BlockGameTabs';
+import BlockSearch from './BlockSearch';
 
 class PageProduct extends React.Component {
 	constructor() {
@@ -88,7 +89,9 @@ class PageProduct extends React.Component {
         else {
 
             return (
-                <Page404 />
+                <div>
+                    <Page404 />
+                </div>
             )
         }
 	}
