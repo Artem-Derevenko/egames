@@ -28,14 +28,16 @@ class BlockBasket extends React.Component {
 	render() {
 		console.log(this.state.basket);
 		return (
-            <div className="block-basket">
+            <div className="block-basket" onLoad={this._countProductBasket.bind(this)}>
 				<div className="block-title">
 					<p>Заказы</p>
 				</div>
 				<div className="basket-conteniar-wrapper">
-					<img className="basket-img" src="../img/basket.png" />
+					<Link to="basket">
+						<img className="basket-img" src="../img/basket.png" />
+					</Link>
 					<p className="conteniar-link">
-						<Link to="basket">{ (this.state.basket == 0) ? "Ваша корзина пуста" : this.state.basket }</Link>
+						<Link to="basket">{ (this.state.basket == 0) ? "Ваша корзина пуста" : "Товара в корзине: " + this.state.basket + " шт." }</Link>
 					</p>
 				</div>
 			</div>

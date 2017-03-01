@@ -50,18 +50,7 @@ class PageBasket extends React.Component {
             count_item++;
         };
 
-        if (( sessionStorage["basket"] === null ) || ( count_item == 0 )) {
-            return (
-                <div>
-                    <p className="parameter_not">
-                        Ваша корзина пуста!<br /><br />
-                        Для выбора товара перейтите в <Link to="/"> каталог</Link>.
-                    </p>
-                </div>
-            )
-        }
-
-        else {
+        if (( sessionStorage["basket"] !== null ) && ( count_item !== 0 )) {
             return (
                 <div className="basket-wrap">
                     <div className="block-step">
@@ -185,6 +174,17 @@ class PageBasket extends React.Component {
                         </div>
                     </div>
                 </div> 
+            )
+        }
+
+        else {
+            return (
+                <div>
+                    <p className="parameter_not">
+                        Ваша корзина пуста!<br /><br />
+                        Для выбора товара перейтите в <Link to="/"> каталог</Link>.
+                    </p>
+                </div>
             )
         }
 	}

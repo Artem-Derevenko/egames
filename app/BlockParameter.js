@@ -49,11 +49,8 @@ class BlockParameter extends React.Component {
         		arr_platform.push(titleDev);
   			}
         };
- 
-        // console.log(arr_developer);
 
-
-        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : 0 ) + "&endPrice=" + ((endPrice > 0) ? endPrice : 0 ) + "&developer=" + arr_developer.join(';') + "&platform=" + arr_platform.join(';');
+        document.location.href = "/#/parameter/" + "startPrice=" + ((startPrice > 0) ? startPrice : "" ) + "&endPrice=" + ((endPrice > 0) ? endPrice : "" ) + "&developer=" + arr_developer.join(';') + "&platform=" + arr_platform.join(';');
     }
 
 	render() {

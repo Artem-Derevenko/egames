@@ -102,7 +102,12 @@ class PageListProductsParameter extends React.Component {
         var product_all_parameter = [];
 
         //фильтруем по цене
-        product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_price.push(item) : false);
+        if ((start_price !== "") || (end_price !== "") ) {
+            product_List.map((item, i) => ( (Number(item.price) >= Number(start_price)) && (Number(item.price) <= Number(end_price)) ) ? product_List_price.push(item) : false);
+        }
+
+        else { product_List_price = product_List }
+        
 
         //фильтруем по производителям
         if (developer == "" ) {

@@ -98,6 +98,8 @@ class PageProduct extends React.Component {
             
             sessionStorage["basket"] = JSON.stringify(arr_basket);
         }
+
+        location.reload();
     }
 
    	render() {
