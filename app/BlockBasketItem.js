@@ -2,6 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class BlockBasketItem extends React.Component {
+	_deleteProduct(id) {
+        var idProduct = id;
+        var arr_basket = JSON.parse(sessionStorage["basket"]);
+
+        arr_basket.map((item, i) => (item.id == idProduct) ? arr_basket.splice(i, 1) : false );
+
+        sessionStorage["basket"] = JSON.stringify(arr_basket);
+
+        location.reload();
+    }
+
 	render() {
 		var prod_info = this.props.product_info;
 		return (
@@ -25,7 +36,7 @@ class BlockBasketItem extends React.Component {
                         <p className="basket-products-sum">{prod_info.info.count * prod_info.info.price} грн.</p>
                     </div>
                     <div className="delete-products">
-                        <a href="#"></a>
+                        <span onClick={this._deleteProduct.bind(this, prod_info.id) }></span>
                     </div>
                 </div>
                 <div className="basket-line"></div>

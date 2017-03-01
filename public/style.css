@@ -745,6 +745,16 @@ input:-webkit-autofill {
   padding: 40px 30px;
 }
 
+.parameter_not a {
+  font: normal 28px Arial; 
+  color: #fff;
+  text-decoration: underline;
+}
+
+.parameter_not a:hover {
+  text-decoration: none;
+}
+
 .parameter_not404 {
   width: 100%;
   font: normal 80px Arial; 
@@ -1977,16 +1987,17 @@ input:-webkit-autofill {
   text-align: center; 
 }
 
-.delete-products a {
+.delete-products span {
   display: block;
   width: 25px;
   height: 25px; 
   margin-top: 47px;
   text-decoration: none;
   background-image: url(../img/reg-close.png);
+  cursor: pointer;
 }
 
-.delete-products a:hover {
+.delete-products span:hover {
   background-image: url(../img/delete-hover.png);
 }
 

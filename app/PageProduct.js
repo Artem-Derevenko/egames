@@ -46,9 +46,6 @@ class PageProduct extends React.Component {
         const priceProd = price;
         const imgProd = img;
 
-        //очистка сессии
-        // sessionStorage.removeItem("basket");
-
         //проверяем на наличие сессии
         if (sessionStorage["basket"] === undefined)  {
 
